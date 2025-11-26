@@ -46,7 +46,7 @@ const Navbar = () => {
           <div className="sm:hidden relative">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-1 rounded-md hover:bg-gray-200 border-3 dark:hover:bg-gray-700 transition"
+              className="p-1 rounded-md  border-3 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
             >
               <motion.div
                 key={isMenuOpen ? "x" : "menu"}
