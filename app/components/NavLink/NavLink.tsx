@@ -6,16 +6,17 @@ import { usePathname } from "next/navigation";
 interface NavLinkProps {
   href: string;
   children: React.ReactNode;
+  className : string
 }
 
-const NavLink = ({ href, children }: NavLinkProps) => {
+const NavLink = ({ href, children, className }: NavLinkProps) => {
   const pathName = usePathname();
   const isActive = pathName === href;
 
   return (
     <Link
       href={href}
-      className={`
+      className={`${className}
         relative
         text-black/70 dark:text-white/80
         hover:text-black dark:hover:text-white
