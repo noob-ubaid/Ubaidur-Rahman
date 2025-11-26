@@ -13,8 +13,8 @@ const NavLink = ({ href, children }: NavLinkProps) => {
   return (
     <Link
       href={href}
-      className={`px-3 py-2 rounded-md ${
-        isActive ? "bg-blue-500 text-white" : "text-gray-700 hover:bg-gray-200"
+      className={`text-black/80 hover:text-black transition-transform duration-300 ${
+        isActive && "font-semibold text-black"
       }`}
     >
       {children}
