@@ -74,7 +74,7 @@ const Navbar = () => {
               )}
               <span
                 className={`relative z-10 ${
-                  item.href === pathname ? "font-semibold" : ""
+                  item.href === pathname ? "font-bold" : ""
                 }`}
               >
                 {item.label}

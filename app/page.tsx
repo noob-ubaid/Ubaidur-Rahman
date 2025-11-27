@@ -34,7 +34,7 @@ const postgreSql: TechStack = {
 };
 export default function Home() {
   return (
-    <div className="pt-14">
+    <div className="mt-4">
       <Image
         src="/profile.jpg"
         alt="image"
@@ -43,7 +43,7 @@ export default function Home() {
         className="rounded-full"
       />
       <p className="mt-8 font-semibold text-3xl">
-        Hi, I'm Ubaidur ———{" "}
+        Hi, I'm Ubaidur ——{" "}
         <span className="text-text-color">A Full Stack Developer </span>
       </p>
       <p className="mt-6 text-lg text-text-color leading-8 ">
@@ -56,8 +56,12 @@ export default function Home() {
         />
         , <TechButton icon={Nextjs} name={next.name} href={next.doc} /> ,
         <TechButton icon={Nodejs} name={node.name} href={node.doc} />, and{" "}
-        <TechButton icon={PostgreSQL} name={postgreSql.name} href={postgreSql.doc} />.
-        With a strong focus on clean{" "}
+        <TechButton
+          icon={PostgreSQL}
+          name={postgreSql.name}
+          href={postgreSql.doc}
+        />
+        . With a strong focus on clean{" "}
         <span className="font-semibold text-black dark:text-white">UI</span> ,
         user experience, and{" "}
         <span className="font-semibold text-black dark:text-white">
@@ -67,7 +71,7 @@ export default function Home() {
       </p>
       <div className="mt-6 flex items-center gap-4 sm:gap-6">
         <Link
-          href={"/"}
+          href={"/resume"}
           className="inline-flex items-center shadow-[inset_0_0_15px_rgba(0,0,0,0.08)] justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background btn-inner-shadow hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9  py-3 sm:px-10 px-7 inset-shadow-indigo-500"
         >
           <Newspaper />
