@@ -3,12 +3,11 @@ import TechButton from "./components/TechButton/TechButton";
 import React from "@/components/svgs/React";
 import TypeScript from "@/components/svgs/TypeScript";
 import Nextjs from "@/components/svgs/Next";
-import Expressjs from "@/components/svgs/Node";
-import MongoDB from "@/components/svgs/MongoDB";
 import Nodejs from "@/components/svgs/Node";
 import { Button } from "@/components/ui/button";
 import { Newspaper, Send } from "lucide-react";
 import Link from "next/link";
+import PostgreSQL from "@/components/svgs/PostgreSql";
 interface TechStack {
   name: string;
   doc: string;
@@ -29,9 +28,9 @@ const node: TechStack = {
   name: "Node.js",
   doc: "https://nodejs.org/en",
 };
-const mongoDB: TechStack = {
-  name: "MongoDB",
-  doc: "https://www.mongodb.com/docs/",
+const postgreSql: TechStack = {
+  name: "PostgreSql",
+  doc: "https://www.postgresql.org/docs/",
 };
 export default function Home() {
   return (
@@ -57,7 +56,7 @@ export default function Home() {
         />
         , <TechButton icon={Nextjs} name={next.name} href={next.doc} /> ,
         <TechButton icon={Nodejs} name={node.name} href={node.doc} />, and{" "}
-        <TechButton icon={MongoDB} name={mongoDB.name} href={mongoDB.doc} />.
+        <TechButton icon={PostgreSQL} name={postgreSql.name} href={postgreSql.doc} />.
         With a strong focus on clean{" "}
         <span className="font-semibold text-black dark:text-white">UI</span> ,
         user experience, and{" "}
