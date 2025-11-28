@@ -20,26 +20,6 @@ const Page = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const result = await emailjs.send(
-        "service_6vaff75", // replace with your service ID
-        "template_9b6eds3", // replace with your template ID
-        {
-          name: data.name,
-          subject: data.subject,
-          email: data.email,
-          message: data.message,
-        },
-        "CAZi6TZlvHaC_vc5M" // replace with your public key
-      );
-
-      console.log("Email sent:", result.text);
-      alert("Message sent successfully!");
-      setData({ name: "", subject: "", email: "", message: "" });
-    } catch (error) {
-      console.error("EmailJS error:", error.message);
-      alert("Failed to send message. Please try again.");
-    }
   };
   return (
     <div>
