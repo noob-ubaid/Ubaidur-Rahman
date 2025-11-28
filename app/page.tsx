@@ -78,7 +78,7 @@ export default function Home() {
           Resume
         </Link>
         <Link
-          href={"/"}
+          href={"/contact"}
           className="sm:px-10 px-7 flex items-center gap-2 py-2 rounded-md bg-black dark:bg-white dark:text-black text-white text-sm font-medium"
         >
           <Send size={18} /> Get in touch

@@ -21,8 +21,8 @@ export default function ResumePage() {
   return (
     <div className="pb-14">
       {/* Title */}
-      <div className="border-b pb-5 text-center">
-        <h1 className="text-3xl md:text-4xl font-semibold">
+      <div className="border-b-2 pb-5 text-center">
+        <h1 className="text-3xl md:text-4xl text-center font-semibold">
           Resume of Md. Ubaidur Rahman
         </h1>
       </div>
