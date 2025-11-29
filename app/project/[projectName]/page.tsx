@@ -15,13 +15,20 @@ const Project = () => {
   if (!project) return <p>Project not found</p>;
   return (
     <div>
-      <Link
-        href={"/"}
-        className="px-6 flex w-fit font-medium items-center gap-3 py-2 border-2 rounded-md text-text-color"
-      >
-        <RiArrowGoBackFill size={20} />
-        Back to portfolio
-      </Link>
+      <div className="flex items-center justify-between gap-2">
+        <Link
+          href={"/"}
+          className="px-3 sm:px-6 flex w-fit font-medium items-center gap-1 sm:gap-3 py-2 border-2 rounded-md text-text-color"
+        >
+          <RiArrowGoBackFill size={20} />
+          Back to portfolio
+        </Link>
+        {project.teamProject && (
+          <div className="px-3 sm:px-6 font-medium text-text-color rounded-md border-2 py-2">
+            Team Project
+          </div>
+        )}
+      </div>
       <div className="w-full relative h-96 border-2 mt-8 rounded-md">
         <Image
           className="object-cover rounded-md bg-center "
@@ -68,20 +75,26 @@ const Project = () => {
         <h4 className=" font-semibold mb-3">Tech Stack</h4>
         <div className=" flex items-center  flex-wrap gap-2 sm:gap-3">
           {project.techStack.map((tech, idx) => (
-            <span className="px-3 py-1 font-medium text-sm rounded-full border-2 " key={idx}>
+            <span
+              className="px-3 py-1 font-medium text-sm rounded-full border-2 "
+              key={idx}
+            >
               {tech}
             </span>
           ))}
         </div>
       </div>
-      <div className="flex flex-col items-center mt-6 md:flex-row gap-6">
+      <div className="flex flex-col items-stretch mt-6 md:flex-row gap-6">
         {/* keyChallenges */}
         <div className="border-2 border-yellow-500 bg-yellow-50 dark:bg-transparent w-full p-4 rounded-md flex-1">
           <h4 className="text-yellow-500 text-2xl mb-4 font-semibold">
             Key Challenges
           </h4>
           {project.keyChallenges.map((challenge, idx) => (
-            <li className="ml-4 mt-2 text-sm text-yellow-500" key={idx}>
+            <li
+              className="ml-4 mt-2 text-sm text-yellow-500 font-medium"
+              key={idx}
+            >
               {challenge}
             </li>
           ))}
@@ -91,11 +104,22 @@ const Project = () => {
             Key Learnings
           </h4>
           {project.keyLearnings.map((challenge, idx) => (
-            <li className="ml-4 mt-2 text-sm text-green-500" key={idx}>
+            <li
+              className="ml-4 mt-2 text-sm text-green-500 font-medium"
+              key={idx}
+            >
               {challenge}
             </li>
           ))}
         </div>
+      </div>
+      <div className="mt-6 border-2 rounded-md p-4">
+        <h4 className=" text-2xl mb-4 font-semibold">Key Features</h4>
+        {project.features.map((feature, idx) => (
+          <li className="ml-4 mt-1.5 text-sm font-medium" key={idx}>
+            {feature}
+          </li>
+        ))}
       </div>
     </div>
   );
