@@ -64,10 +64,38 @@ const Project = () => {
           </a>
         </div>
       </div>
-      <div className="border-2 p-3 sm:p-4 flex items-center rounded-md mt-6 flex-wrap gap-3">
-        {project.techStack.map((tech, idx) => (
-          <span className="px-3 py-1 rounded-full border" key={idx}>{tech}</span>
-        ))}
+      <div className="border-2 p-4 rounded-md mt-6">
+        <h4 className=" font-semibold mb-3">Tech Stack</h4>
+        <div className=" flex items-center  flex-wrap gap-2 sm:gap-3">
+          {project.techStack.map((tech, idx) => (
+            <span className="px-3 py-1 font-medium text-sm rounded-full border-2 " key={idx}>
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col items-center mt-6 md:flex-row gap-6">
+        {/* keyChallenges */}
+        <div className="border-2 border-yellow-500 bg-yellow-50 dark:bg-transparent w-full p-4 rounded-md flex-1">
+          <h4 className="text-yellow-500 text-2xl mb-4 font-semibold">
+            Key Challenges
+          </h4>
+          {project.keyChallenges.map((challenge, idx) => (
+            <li className="ml-4 mt-2 text-sm text-yellow-500" key={idx}>
+              {challenge}
+            </li>
+          ))}
+        </div>
+        <div className="border-2 border-green-500 p-4 bg-green-50 dark:bg-transparent w-full rounded-md flex-1">
+          <h4 className="text-green-500 text-2xl mb-4 font-semibold">
+            Key Learnings
+          </h4>
+          {project.keyLearnings.map((challenge, idx) => (
+            <li className="ml-4 mt-2 text-sm text-green-500" key={idx}>
+              {challenge}
+            </li>
+          ))}
+        </div>
       </div>
     </div>
   );
