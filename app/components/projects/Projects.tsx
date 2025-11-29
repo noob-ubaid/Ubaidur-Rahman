@@ -373,7 +373,9 @@ const Projects = () => {
       serverLink: "https://github.com/noob-ubaid/Recipe-book-server",
     },
   ];
-  return <div></div>;
+  return <div>
+  <h4 className="text-4xl fo">Projects</h4>
+  </div>;
 };
 
 export default Projects;
