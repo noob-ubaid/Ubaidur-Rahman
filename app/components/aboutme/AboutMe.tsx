@@ -1,7 +1,6 @@
-import React from "react";
 import Title from "../shared/Title";
 import Image from "next/image";
-
+import { GitHubCalendar } from "react-github-calendar";
 const AboutMe = () => {
   return (
     <div className="mt-16">
@@ -12,7 +11,7 @@ const AboutMe = () => {
             src={"/aboutme.jpg"}
             alt="profile"
             fill
-            className="object-cover bg-top rounded-md"
+            className="object-cover  bg-top rounded-md"
           />
         </div>
         <div className="col-span-10 sm:col-span-6 space-y-6">
@@ -25,6 +24,16 @@ const AboutMe = () => {
           </p>
           <p className="font-semibold text-text-color">Skills</p>
         </div>
+      </div>
+      <div className="p-4 rounded-md border-2">
+        <GitHubCalendar
+          username="noob-ubaid"
+          colorScheme="light"
+          showMonthLabels={true}
+          fontSize={15}
+          blockSize={10}
+          blockMargin={2}
+        />
       </div>
     </div>
   );

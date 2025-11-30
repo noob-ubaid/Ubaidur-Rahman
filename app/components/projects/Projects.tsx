@@ -330,15 +330,7 @@ const Projects = () => {
       <Title text="Projects" />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-14">
         {allProjects.map((project, idx) => (
-          <motion.div
-            initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-            whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{
-              duration: 0.3,
-              delay: idx * 0.1,
-              ease: "easeInOut",
-            }}
-            viewport={{ once: true }}
+          <div
             key={project.id}
             className="shadow-md border-2 rounded-xl"
           >
@@ -385,7 +377,7 @@ const Projects = () => {
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>
