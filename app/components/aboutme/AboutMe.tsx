@@ -1,9 +1,9 @@
+import GithubActivity from "../github/GithubActivity";
 import Title from "../shared/Title";
 import Image from "next/image";
-import { GitHubCalendar } from "react-github-calendar";
 const AboutMe = () => {
   return (
-    <div className="mt-16">
+    <div className="">
       <Title text={"About Me"} />
       <div className="grid grid-cols-10 mt-14 gap-6">
         <div className="col-span-10 sm:col-span-4 relative w-full h-80 sm:h-72">
@@ -25,16 +25,7 @@ const AboutMe = () => {
           <p className="font-semibold text-text-color">Skills</p>
         </div>
       </div>
-      <div className="p-4 rounded-md border-2">
-        <GitHubCalendar
-          username="noob-ubaid"
-          colorScheme="light"
-          showMonthLabels={true}
-          fontSize={15}
-          blockSize={10}
-          blockMargin={2}
-        />
-      </div>
+      <GithubActivity/>
     </div>
   );
 };
