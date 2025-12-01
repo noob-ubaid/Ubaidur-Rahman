@@ -204,18 +204,6 @@
 //   );
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
 import {
   ChevronsDownUpIcon,
   ChevronsUpDownIcon,
@@ -264,11 +252,7 @@ export function ExperienceItem({ project }: { project: Project }) {
   );
 }
 
-export function ExperiencePositionItem({
-  project,
-}: {
-  project: Project;
-}) {
+export function ExperiencePositionItem({ project }: { project: Project }) {
   const ExperienceIcon = iconMap["project"];
 
   return (
@@ -301,7 +285,6 @@ export function ExperiencePositionItem({
           <div className="relative z-1 flex items-center gap-2 pl-9 text-sm text-muted-foreground">
             <span>{project.teamProject ? "Team Project" : "Solo Project"}</span>
             <Separator orientation="vertical" />
-            <span>{project.shortDescription}</span>
           </div>
         </CollapsibleTrigger>
 
@@ -327,51 +310,6 @@ export function ExperiencePositionItem({
               <li key={index}>{feature}</li>
             ))}
           </ul>
-
-          {/* Key Challenges */}
-          <h3 className="pl-9 pt-3 font-semibold">Key Challenges</h3>
-          <ul className="list-disc pl-14 space-y-1 text-sm text-muted-foreground">
-            {project.keyChallenges.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-
-          {/* Key Learnings */}
-          <h3 className="pl-9 pt-3 font-semibold">Key Learnings</h3>
-          <ul className="list-disc pl-14 space-y-1 text-sm text-muted-foreground">
-            {project.keyLearnings.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-
-          {/* Project Links */}
-          <div className="pl-9 pt-3 space-y-1 text-sm">
-            <a
-              href={project.liveLink}
-              className="underline text-primary"
-              target="_blank"
-            >
-              Live Link
-            </a>
-            <br />
-            <a
-              href={project.clientLink}
-              className="underline text-primary"
-              target="_blank"
-            >
-              Client Code
-            </a>
-            <br />
-            {project.serverLink && (
-              <a
-                href={project.serverLink}
-                className="underline text-primary"
-                target="_blank"
-              >
-                Server Code
-              </a>
-            )}
-          </div>
         </CollapsibleContent>
       </div>
     </Collapsible>
