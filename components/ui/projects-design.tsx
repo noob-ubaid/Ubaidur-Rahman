@@ -282,9 +282,9 @@ export function ExperiencePositionItem({ project }: { project: Project }) {
             </div>
           </div>
 
-          <div className="relative z-1 flex items-center gap-2 pl-9 text-sm text-muted-foreground">
-            <span>{project.teamProject ? "Team Project" : "Solo Project"}</span>
-            <Separator orientation="vertical" />
+          <div className="relative z-1 flex items-center gap-3 pl-9 text-sm text-muted-foreground">
+            <span className="font-medium pr-3 border-r-2">{project.status.}</span>
+            <span className="font-medium">{project.teamProject ? "Team Project" : "Solo Project"}</span>
           </div>
         </CollapsibleTrigger>
 
