@@ -24,12 +24,17 @@ export default function ResumePage() {
       {/* Title */}
       <div className="border-b-2 pb-5 text-center">
         <Title text="Resume of Md. Ubaidur Rahman" />
+        <p className=" text-center text-text-color mt-6">
+          A concise summary of my technical skills, experience, and projects as
+          a web developer. This resume reflects my journey, capabilities, and
+          the value I bring as a MERN Stack Developer.
+        </p>
       </div>
       {/* Embedded Resume */}
       <div className="mt-8">
         <iframe
           src={resumeConfig.url}
-          className="w-full sm:min-h-screen h-[540px] border rounded-md"
+          className="w-full sm:min-h-screen h-[530px] border rounded-md"
         ></iframe>
       </div>
     </div>

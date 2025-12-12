@@ -17,15 +17,15 @@ type Skill = {
 };
 
 const skills: Skill[] = [
-  { name: "JavaScript", icon: <JavaScript className="size-5" /> },
-  { name: "TypeScript", icon: <TypeScript className="size-5" /> },
-  { name: "Tailwind CSS", icon: <TailwindCSS className="size-5" /> },
-  { name: "React ", icon: <React className="size-5" /> },
-  { name: "Next.js", icon: <NextjsIcon className="size-5" /> },
-  { name: "Node.js", icon: <Nodejs className="size-5" /> },
-  { name: "Express.js", icon: <Expressjs className="size-5" /> },
-  { name: "MongoDB", icon: <MongoDB className="size-5" /> },
-  { name: "PostgreSQL", icon: <PostgreSQL className="size-5" /> },
+  { name: "JavaScript", icon: <JavaScript className="size-4 sm:size-5" /> },
+  { name: "TypeScript", icon: <TypeScript className="size-4 sm:size-5" /> },
+  { name: "Tailwind CSS", icon: <TailwindCSS className="size-4 sm:size-5" /> },
+  { name: "React ", icon: <React className="size-4 sm:size-5" /> },
+  { name: "Next.js", icon: <NextjsIcon className="size-4 sm:size-5" /> },
+  { name: "Node.js", icon: <Nodejs className="size-4 sm:size-5" /> },
+  { name: "Express.js", icon: <Expressjs className="size-4 sm:size-5" /> },
+  { name: "MongoDB", icon: <MongoDB className="size-4 sm:size-5" /> },
+  { name: "PostgreSQL", icon: <PostgreSQL className="size-4 sm:size-5" /> },
 ];
 
 export default function Skills() {
@@ -42,7 +42,7 @@ export default function Skills() {
             <motion.div
               key={index}
               layout
-              className="border p-1.5 rounded-full flex cursor-pointer overflow-hidden"
+              className="border px-1.5 py-1 sm:px-1.5 sm:py-1.5 rounded-full flex items-center justify-center cursor-pointer overflow-hidden"
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
               animate={{ opacity: isHovered ? 1 : 0.9 }}
@@ -54,7 +54,7 @@ export default function Skills() {
 
               <motion.span
                 initial={{ width: 0, opacity: 0 }}
-                className="text-sm font-medium whitespace-nowrap"
+                className="text-xs sm:text-sm font-medium whitespace-nowrap"
                 animate={{
                   width: isHovered ? "auto" : 0,
                   opacity: isHovered ? 1 : 0,
