@@ -14,7 +14,7 @@ const Project = () => {
   );
   if (!project) return <p>Project not found</p>;
   return (
-    <div>
+    <div className="mt-14">
       <div className="flex items-center justify-between gap-2">
         <Link
           href={"/"}

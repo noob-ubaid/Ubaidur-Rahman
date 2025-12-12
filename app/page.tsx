@@ -1,3 +1,4 @@
+"use client";
 import TechButton from "./components/TechButton/TechButton";
 import React from "@/components/svgs/React";
 import TypeScript from "@/components/svgs/TypeScript";
@@ -9,10 +10,13 @@ import PostgreSQL from "@/components/svgs/PostgreSql";
 import SocialIcons from "./components/socialIcons/SocialIcons";
 import Projects from "./components/projects/Projects";
 import AboutMe from "./components/aboutme/AboutMe";
+import { motion } from "framer-motion";
+
 interface TechStack {
   name: string;
   doc: string;
 }
+
 const react: TechStack = {
   name: "React.js",
   doc: "https://react.dev/",
@@ -33,14 +37,42 @@ const postgreSql: TechStack = {
   name: "PostgreSql",
   doc: "https://www.postgresql.org/docs/",
 };
+
+// Variants for fade-up with stagger
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 5 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
 export default function Home() {
   return (
-    <div className="mt-14">
-      <p className=" font-semibold text-3xl">
+    <motion.div
+      className="mt-14 space-y-6"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {/* Greeting */}
+      <motion.p className="font-semibold text-3xl" variants={itemVariants}>
         Hi, I'm Ubaidur —{" "}
         <span className="text-text-color">A Full Stack Developer </span>
-      </p>
-      <p className="mt-6 text-lg text-text-color leading-8 ">
+      </motion.p>
+
+      {/* Intro Paragraph */}
+      <motion.p
+        className="mt-6 text-lg text-text-color leading-9"
+        variants={itemVariants}
+      >
         I specialize in building fast, modern, and scalable web applications
         using <TechButton icon={React} name={react.name} href={react.doc} /> ,
         <TechButton
@@ -62,8 +94,13 @@ export default function Home() {
           performance
         </span>
         .
-      </p>
-      <div className="mt-6 flex items-center gap-4 sm:gap-6">
+      </motion.p>
+
+      {/* Buttons */}
+      <motion.div
+        className="mt-6 flex items-center gap-4 sm:gap-6"
+        variants={itemVariants}
+      >
         <Link
           href={"/resume"}
           className="inline-flex items-center shadow-[inset_0_0_15px_rgba(0,0,0,0.08)] justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background btn-inner-shadow hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9  py-3 sm:px-10 px-7 inset-shadow-indigo-500"
@@ -77,10 +114,15 @@ export default function Home() {
         >
           <Send size={18} /> Get in touch
         </Link>
-      </div>
-      <SocialIcons />
+      </motion.div>
+
+      <motion.div variants={itemVariants}>
+        <SocialIcons />
+      </motion.div>
+
       <Projects />
+
       <AboutMe />
-    </div>
+    </motion.div>
   );
 }

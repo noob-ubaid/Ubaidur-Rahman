@@ -42,7 +42,7 @@ export default function Skills() {
             <motion.div
               key={index}
               layout
-              className="border px-1.5 py-1 sm:px-1.5 sm:py-1.5 rounded-full flex items-center justify-center cursor-pointer overflow-hidden"
+              className="border p-1.5 rounded-full flex items-center justify-center cursor-pointer overflow-hidden"
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
               animate={{ opacity: isHovered ? 1 : 0.9 }}

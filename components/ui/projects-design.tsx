@@ -1,3 +1,4 @@
+"use client";
 import {
   ChevronsDownUpIcon,
   ChevronsUpDownIcon,
@@ -16,6 +17,7 @@ import { Project } from "@/app/components/projects/Projects";
 import Link from "next/link";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
 import { TbWorld } from "react-icons/tb";
+import { motion } from "framer-motion";
 
 const iconMap = {
   project: CodeXmlIcon,
@@ -30,20 +32,32 @@ export function WorkExperience({
 }) {
   return (
     <div className={cn("bg-background", className)}>
-      {experiences.map((project) => (
-        <ExperienceItem key={project.id} project={project} />
+      {experiences.map((project, index) => (
+        <ExperienceItem key={project.id} project={project} index={index} />
       ))}
     </div>
   );
 }
 
-export function ExperienceItem({ project }: { project: Project }) {
+export function ExperienceItem({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) {
   return (
-    <div className="space-y-4 py-4">
+    <motion.div
+      className="space-y-4 py-4"
+      initial={{ opacity: 0, y: 10 , filter: "blur(10px)"}}
+      whileInView={{ opacity: 1, y: 0,filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.06 }}
+    >
       <div className="relative space-y-4 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
-        <ExperiencePositionItem key={project.id} project={project} />
+        <ExperiencePositionItem project={project} />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
