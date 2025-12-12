@@ -118,23 +118,14 @@ export default function GithubActivity() {
   }, []);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3">
       {/* Header */}
       <Title text={"Github Activity"} />
       <div>
-        <div className="space-y-1">
+        <div className="">
           <p className="text-sm text-muted-foreground">
             <b>ubaidur</b>&apos;s {githubConfig.subtitle}
           </p>
-          {!isLoading && !hasError && totalContributions > 0 && (
-            <p className="text-sm text-primary font-medium mt-1">
-              Total:{" "}
-              <span className="font-black">
-                {totalContributions.toLocaleString()}
-              </span>{" "}
-              contributions in the last year
-            </p>
-          )}
         </div>
       </div>
 

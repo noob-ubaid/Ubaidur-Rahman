@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <div className="">
       <p className=" font-semibold text-3xl">
-        Hi, I'm Ubaidur ——{" "}
+        Hi, I'm Ubaidur —{" "}
         <span className="text-text-color">A Full Stack Developer </span>
       </p>
       <p className="mt-6 text-lg text-text-color leading-8 ">
