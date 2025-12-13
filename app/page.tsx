@@ -10,7 +10,7 @@ import PostgreSQL from "@/components/svgs/PostgreSql";
 import SocialIcons from "./components/socialIcons/SocialIcons";
 import Projects from "./components/projects/Projects";
 import AboutMe from "./components/aboutme/AboutMe";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface TechStack {
   name: string;
@@ -39,7 +39,7 @@ const postgreSql: TechStack = {
 };
 
 // Variants for fade-up with stagger
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -48,7 +48,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 5 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
