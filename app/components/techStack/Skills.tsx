@@ -35,7 +35,7 @@ export default function Skills() {
     <div>
       <p className="font-semibold text-text-color">Core Skills</p>
 
-      <div className="flex items-center gap-1 mt-2">
+      <div className="flex items-center gap-1 mt-1">
         {skills.map((skill, index) => {
           const isHovered = hovered === index;
           return (
@@ -48,7 +48,7 @@ export default function Skills() {
               animate={{ opacity: isHovered ? 1 : 0.9 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
             >
-              <span className={isHovered ? "mr-1" : undefined}>
+              <span className={isHovered ? "sm:mr-1 mr-0.5" : undefined}>
                 {skill.icon}
               </span>
 
