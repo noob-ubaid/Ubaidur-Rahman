@@ -31,7 +31,6 @@ type GitHubContributionResponse = {
     | "FOURTH_QUARTILE";
 };
 
-// Helper function to filter contributions to past year
 function filterLastYear(contributions: ContributionItem[]): ContributionItem[] {
   const oneYearAgo = new Date();
   oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
@@ -120,7 +119,7 @@ export default function GithubActivity() {
   return (
     <div className="space-y-3">
       {/* Header */}
-      <Title text={"Github Activity"} />
+      <Title upperText="Featured" lowerText="Github Activity" />
       <div>
         <div className="">
           <p className="text-[15px] text-muted-foreground">

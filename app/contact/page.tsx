@@ -21,8 +21,8 @@ const Page = () => {
     e.preventDefault();
   };
   return (
-    <div className="">
-      <Title text="Contact Me" />
+    <div className="mt-14">
+       <h2 className="text-2xl sm:text-3xl font-bold text-center">Contact Me</h2>
       <div className="pb-5 border-b-2">
         <p className=" text-center text-text-color mt-6">
           Don’t hesitate to get in touch—whether it’s a new project idea or a

@@ -20,11 +20,13 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
   return (
-    <div className="pb-14">
+    <div className="pb-14 mt-14">
       {/* Title */}
       <div className="border-b-2 pb-5 text-center">
-        <Title text="Resume of Md. Ubaidur Rahman" />
-        <p className=" text-center text-text-color mt-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center">
+          Resume of Md Ubaidur Rahman
+        </h2>
+        <p className=" text-center text-text-color mt-4">
           A concise summary of my technical skills, experience, and projects as
           a web developer. This resume reflects my journey, capabilities, and
           the value I bring as a MERN Stack Developer.
