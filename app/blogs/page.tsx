@@ -2,12 +2,13 @@ import React from "react";
 import BlogPosts from "../components/BlogPosts/BlogPosts";
 import fs from "fs";
 import matter from "gray-matter";
+import type { BlogPostMeta } from "../components/BlogPosts/BlogPosts";
 
 const dirContent = fs.readdirSync("content", "utf-8");
-const blogs = dirContent.map((file) => {
+const blogs: BlogPostMeta[] = dirContent.map((file) => {
   const fileContent = fs.readFileSync(`content/${file}`, "utf-8");
   const { data } = matter(fileContent);
-  return data;
+  return data as BlogPostMeta;
 });
 
 const BlogsPage = () => {
