@@ -3,7 +3,7 @@ title: "React Router: The Maze of Endless Routes"
 description: Step into a labyrinth of URLs and components with React Router. Learn how to navigate this maze without getting lost in 404 errors or broken links.
 date: 26 mar 2024
 tags: ["code", "react", "routing", "React Router"]
-slug: react-router-maze
+slug: react-router
 ---
 
 # React Router: The Maze of Endless Routes
