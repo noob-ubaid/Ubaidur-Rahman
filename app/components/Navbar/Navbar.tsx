@@ -99,9 +99,9 @@ const Navbar = () => {
             >
               <motion.div
                 key={isMenuOpen ? "x" : "menu"}
-                initial={{ rotate: -90, opacity: 0 }}
+                initial={{ rotate: 0, opacity: 0 }}
                 animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
+                exit={{ rotate: 0, opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}

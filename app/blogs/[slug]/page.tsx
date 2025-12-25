@@ -13,6 +13,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import Link from "next/link";
 import OnThisPage from "@/app/components/OnThisPage/OnThisPage";
+import { RiArrowGoBackFill } from "react-icons/ri";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const { slug } = await params;
@@ -44,12 +45,9 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   return (
     <main className="mt-14">
       <div className="mb-8">
-              <OnThisPage htmlContent={htmlContent} />
-
-        <Link
-          className="border-2 rounded-md px-5 py-2 font-medium "
-          href={`/blogs`}
-        >
+        <OnThisPage htmlContent={htmlContent} />
+        <Link className="btn-design" href={`/blogs`}>
+          <RiArrowGoBackFill size={20} />
           Back to blogs page
         </Link>
       </div>

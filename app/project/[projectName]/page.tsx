@@ -15,19 +15,11 @@ const Project = () => {
   if (!project) return <p>Project not found</p>;
   return (
     <div className="mt-14">
-      <div className="flex items-center justify-between gap-2">
-        <Link
-          href={"/"}
-          className="px-3 sm:px-6 flex w-fit font-medium items-center gap-1 sm:gap-3 py-2 border-2 rounded-md text-text-color"
-        >
+      <div className="">
+        <Link href={"/"} className="btn-design">
           <RiArrowGoBackFill size={20} />
           Back to portfolio
         </Link>
-        {project.teamProject && (
-          <div className="px-3 sm:px-6 font-medium text-text-color rounded-md border-2 py-2">
-            Team Project
-          </div>
-        )}
       </div>
       <div className="w-full relative h-96 border-2 mt-8 rounded-md">
         <Image
@@ -73,7 +65,7 @@ const Project = () => {
       </div>
       <div className="border-2 p-4 rounded-md mt-6">
         <h4 className=" font-semibold mb-3">Tech Stack</h4>
-        <div className=" flex items-center  flex-wrap gap-2 sm:gap-3">
+        <div className=" flex items-center  flex-wrap gap-2">
           {project.techStack.map((tech, idx) => (
             <span
               className="px-3 py-1 font-medium text-sm rounded-full border-2 "
