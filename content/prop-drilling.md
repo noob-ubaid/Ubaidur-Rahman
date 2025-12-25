@@ -8,7 +8,7 @@ slug: prop-drilling
 
 # Prop Drilling: The Horror Movie
 
-In the shadowy depths of a complex React application, a horror story unfolds. Components, innocent and unsuspecting, find themselves ensnared in a terrifying ordeal known as prop drilling. This tale of suspense and survival will take you through the darkest corridors of React development.
+**In the shadowy** depths of a complex React application, a horror story unfolds. Components, innocent and unsuspecting, find themselves ensnared in a terrifying ordeal known as prop drilling. This tale of suspense and survival will take you through the darkest corridors of React development.
 
 ## The Curse of Prop Drilling
 
@@ -28,7 +28,7 @@ As the props descend deeper into the component tree, strange things begin to hap
 
 Just when all hope seems lost, heroes emerge from the shadows: the Context API and Redux. With their powers of global state management, they offer a beacon of light in the dark, illuminating a path to safety for the beleaguered props.
 
-```jsx showLineNumbers
+```jsx showLineNumbers 
 const TerrorContext = React.createContext();
 const TerrorProvider = ({ children }) => {
   const [terror, setTerror] = useState("everywhere");

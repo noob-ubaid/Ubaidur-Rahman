@@ -12,6 +12,7 @@ import { transformerCopyButton } from "@rehype-pretty/transformers";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import Link from "next/link";
+import OnThisPage from "@/app/components/OnThisPage/OnThisPage";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const { slug } = await params;
@@ -43,6 +44,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   return (
     <main className="mt-14">
       <div className="mb-8">
+              <OnThisPage htmlContent={htmlContent} />
+
         <Link
           className="border-2 rounded-md px-5 py-2 font-medium "
           href={`/blogs`}
