@@ -3,6 +3,7 @@ import BlogPosts from "../components/BlogPosts/BlogPosts";
 import fs from "fs";
 import matter from "gray-matter";
 import type { BlogPostMeta } from "../components/BlogPosts/BlogPosts";
+import BlogsHeader from "../components/BlogsHeader/BlogsHeader";
 
 const dirContent = fs.readdirSync("content", "utf-8");
 const blogs: BlogPostMeta[] = dirContent.map((file) => {
@@ -14,14 +15,7 @@ const blogs: BlogPostMeta[] = dirContent.map((file) => {
 const BlogsPage = () => {
   return (
     <div className="mt-14">
-      <div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-center">Blogs</h2>
-        <p className="pb-5 border-b-2 text-center text-text-color mt-6">
-          Thoughts, tutorials, and experiences from my journey as a full-stack
-          web developer. I share what I learn while building real-world
-          projects.
-        </p>
-      </div>
+     <BlogsHeader/>
       <div className="mt-8">
         {blogs.map((post, index) => (
           <BlogPosts key={index} index={index} post={post} />

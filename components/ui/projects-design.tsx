@@ -52,7 +52,7 @@ export function ExperienceItem({
       initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.06 }}
+      transition={{ duration: 0.2, ease: "easeOut", delay: index * 0.05 }}
     >
       <div className="relative space-y-4 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
         <ExperiencePositionItem project={project} />

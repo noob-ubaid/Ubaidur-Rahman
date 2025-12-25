@@ -16,7 +16,7 @@ const BlogPosts = ({ post, index }: { post: BlogPostMeta; index: number }) => {
       whileInView={{ opacity: 1, filter: "blur(0px)" }}
       transition={{ duration: 0.2, delay: 0.05 * index }}
       viewport={{ once: true }}
-      className="p-1 mt-3 rounded-md"
+      className="p-1 mt-4 rounded-md"
     >
       <Link href={`/blogs/${post.slug}`}>
         <div className="flex sm:items-center flex-col mb-2 sm:flex-row gap-1 sm:justify-between">

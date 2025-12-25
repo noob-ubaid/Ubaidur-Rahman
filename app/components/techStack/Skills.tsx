@@ -35,7 +35,7 @@ export default function Skills() {
     <div>
       <p className="font-semibold text-text-color">Core Skills</p>
 
-      <div className="flex items-center gap-1 mt-1">
+      <div className="flex items-center gap-0.5 sm:gap-1 mt-1">
         {skills.map((skill, index) => {
           const isHovered = hovered === index;
           return (

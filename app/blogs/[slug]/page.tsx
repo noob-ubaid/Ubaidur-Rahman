@@ -11,6 +11,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
+import Link from "next/link";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const { slug } = await params;
@@ -41,6 +42,14 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   const htmlContent = (await processor.process(content)).toString();
   return (
     <main className="mt-14">
+      <div className="mb-8">
+        <Link
+          className="border-2 rounded-md px-5 py-2 font-medium "
+          href={`/blogs`}
+        >
+          Back to blogs page
+        </Link>
+      </div>
       <article>
         <div
           dangerouslySetInnerHTML={{ __html: htmlContent }}
