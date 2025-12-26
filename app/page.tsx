@@ -5,7 +5,7 @@ import Hero from "./components/Hero/Hero";
 
 export default function Home() {
   return (
-    <div className="mt-14 space-y-6">
+    <div className=" space-y-6">
       <Hero/>
       <Projects />
       <AboutMe />

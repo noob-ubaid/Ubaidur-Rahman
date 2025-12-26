@@ -31,8 +31,8 @@ const Navbar = () => {
     },
     {
       id: 3,
-      label: "Snippets",
-      href: "/snippets",
+      label: "Contact",
+      href: "/contact",
     },
   ];
   useEffect(() => {
