@@ -1,8 +1,23 @@
 "use client";
+import { motion, Variants } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Send } from "lucide-react";
 import { useState } from "react";
+
+const containerVariants: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.06,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
+};
 type FormData = {
   name: string;
   subject: string;
@@ -20,25 +35,48 @@ const Page = () => {
     e.preventDefault();
   };
   return (
-    <div className="">
-       <h2 className="text-2xl sm:text-3xl font-bold text-center">Contact Me</h2>
-      <div className="pb-5 border-b-2">
-        <p className=" text-center text-text-color mt-6">
+    <motion.div
+      className=""
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+    >
+      <motion.h2
+        className="text-2xl sm:text-3xl font-bold text-center"
+        variants={itemVariants}
+      >
+        Contact Me
+      </motion.h2>
+
+      <motion.div className="pb-5 border-b-2" variants={itemVariants}>
+        <p className="text-center text-text-color mt-6">
           Don’t hesitate to get in touch—whether it’s a new project idea or a
           collaboration invite. I’m eager to connect and typically respond
           within a day. Let’s create something amazing together!
         </p>
-      </div>
-      <div className="mt-8">
-        <h4 className=" font-medium">Send me a message</h4>
+      </motion.div>
+
+      <motion.div className="mt-8" variants={itemVariants}>
+        <h4 className="font-medium">Send me a message</h4>
         <p className="text-sm text-text-color mt-2 font-medium">
           Fill out the form below and I will get back to you as soon as
           possible.
         </p>
-      </div>
-      <form onSubmit={handleSubmit} className="mt-8 space-y-4">
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-7">
-          <div className="flex flex-col gap-2 flex-1">
+      </motion.div>
+
+      <motion.form
+        onSubmit={handleSubmit}
+        className="mt-8 space-y-4"
+        variants={itemVariants}
+      >
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 sm:gap-7"
+          variants={containerVariants}
+        >
+          <motion.div
+            className="flex flex-col gap-2 flex-1"
+            variants={itemVariants}
+          >
             <label htmlFor="name" className="text-sm font-medium">
               Name *
             </label>
@@ -50,9 +88,13 @@ const Page = () => {
               placeholder="Your full name"
               id="name"
             />
-          </div>
-          <div className="flex flex-col gap-2 flex-1">
-            <label htmlFor="subject" className="text-sm font-medium ">
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col gap-2 flex-1"
+            variants={itemVariants}
+          >
+            <label htmlFor="subject" className="text-sm font-medium">
               Subject *
             </label>
             <Input
@@ -63,10 +105,11 @@ const Page = () => {
               placeholder="Enter your email subject"
               id="subject"
             />
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="email" className="text-sm font-medium ">
+          </motion.div>
+        </motion.div>
+
+        <motion.div className="flex flex-col gap-2" variants={itemVariants}>
+          <label htmlFor="email" className="text-sm font-medium">
             Email *
           </label>
           <Input
@@ -77,9 +120,10 @@ const Page = () => {
             placeholder="Enter your email"
             id="email"
           />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="message" className="text-sm font-medium ">
+        </motion.div>
+
+        <motion.div className="flex flex-col gap-2" variants={itemVariants}>
+          <label htmlFor="message" className="text-sm font-medium">
             Message *
           </label>
           <Textarea
@@ -90,12 +134,16 @@ const Page = () => {
             className="resize-none w-full h-32"
             id="message"
           />
-        </div>
-        <button className=" w-full  flex items-center justify-center mt-6 gap-2 py-2.5 rounded-md bg-black dark:bg-white dark:text-black text-white text-sm font-medium">
+        </motion.div>
+
+        <motion.button
+          className="w-full flex items-center justify-center mt-6 gap-2 py-2.5 rounded-md bg-black dark:bg-white dark:text-black text-white text-sm font-medium"
+          variants={itemVariants}
+        >
           <Send size={18} /> Get in touch
-        </button>
-      </form>
-    </div>
+        </motion.button>
+      </motion.form>
+    </motion.div>
   );
 };
 

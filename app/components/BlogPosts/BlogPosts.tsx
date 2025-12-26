@@ -14,7 +14,7 @@ const BlogPosts = ({ post, index }: { post: BlogPostMeta; index: number }) => {
     <motion.div
       initial={{ opacity: 0, filter: "blur(10px)" }}
       whileInView={{ opacity: 1, filter: "blur(0px)" }}
-      transition={{ duration: 0.3, delay: 0.05 * index }}
+      transition={{ duration: 0.3, delay: 0.06 * index }}
       viewport={{ once: true }}
       className="p-1 mt-5 rounded-md"
     >
