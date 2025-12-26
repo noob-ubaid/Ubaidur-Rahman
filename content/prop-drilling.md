@@ -47,3 +47,4 @@ Armed with Context and Redux, the components band together to confront the curse
 As dawn breaks on our tale, the components emerge wiser and stronger. They've learned that with the right tools and patterns, even the most terrifying challenges in React development can be overcome.
 
 Remember, when faced with the horror of prop drilling, do not despair. The Context API and Redux are your allies in the dark, ready to bring light to your React applications.
+
