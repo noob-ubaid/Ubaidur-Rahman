@@ -1,7 +1,7 @@
 import { getBlogs } from "@/lib/getBlogs";
 import Title from "../shared/Title";
 import BlogPosts from "../BlogPosts/BlogPosts";
-
+import ButtonLink from "../shared/ButtonLink";
 export default function FeaturedBlogs() {
   const blogs = getBlogs().slice(0, 3);
 
@@ -13,6 +13,7 @@ export default function FeaturedBlogs() {
           <BlogPosts key={index} index={index} post={post} />
         ))}
       </div>
+      <ButtonLink />
     </section>
   );
 }

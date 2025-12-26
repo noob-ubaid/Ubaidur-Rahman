@@ -48,7 +48,7 @@ export const githubConfig = {
       'rgb(155, 233, 168)', // Light green
       'rgb(64, 196, 99)', // Medium green
       'rgb(48, 161, 78)', // Dark green
-      'rgb(33, 110, 57)', // Very dark green
+      'rgb(33, 150, 67)', // Very dark green
     ],
   },
 
