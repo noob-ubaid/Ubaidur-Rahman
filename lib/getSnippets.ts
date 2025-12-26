@@ -7,11 +7,8 @@ const SNIPPETS_PATH = path.join(process.cwd(), "snippets");
 export function getAllSnippets() {
   const files = fs.readdirSync(SNIPPETS_PATH);
 
-  return files.map(file => {
-    const source = fs.readFileSync(
-      path.join(SNIPPETS_PATH, file),
-      "utf8"
-    );
+  return files.map((file) => {
+    const source = fs.readFileSync(path.join(SNIPPETS_PATH, file), "utf8");
 
     const { data } = matter(source);
 

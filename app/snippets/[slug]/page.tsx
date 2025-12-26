@@ -1,30 +1,52 @@
-import Skills from "@/app/components/techStack/Skills";
 import { getSnippetBySlug } from "@/lib/getSnippets";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { mdxToHtml } from "@/lib/mdxToHtml";
+import { notFound } from "next/navigation";
+import Skills from "@/app/components/techStack/Skills";
 
 type Props = {
   params: { slug: string };
 };
 
 export default async function SnippetDetail({ params }: Props) {
-    const { slug } = await params;
-  const { content, data } = getSnippetBySlug(slug);
+  const { slug } = await params;
+  const snippet = getSnippetBySlug(slug);
+
+  if (!snippet) return notFound();
+
+  const { content, data } = snippet;
+  const htmlContent = await mdxToHtml(content);
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-3xl font-bold">
-        {data.title}
-      </h1>
-      <p className="text-gray-600 mb-6">
-        {data.description}
-      </p>
+    <main className="mt-14 max-w-6xl mx-auto px-6">
+      {/* Header */}
+      <header className="mb-10">
+        <h1 className="text-4xl font-bold mb-3">
+          {data.title}
+        </h1>
+        <p className="text-muted-foreground text-lg">
+          {data.description}
+        </p>
+      </header>
 
-      <MDXRemote
-        source={content}
-        components={{
-          Skills,
-        }}
+      {/* Preview */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-semibold mb-4">
+          Preview
+        </h2>
+        <div className="border rounded-xl p-6 bg-background">
+          <Skills />
+        </div>
+      </section>
+
+      {/* Code / Content */}
+      <article
+        className="
+          prose prose-gray
+          dark:prose-invert
+          max-w-none
+        "
+        dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
-    </div>
+    </main>
   );
 }
