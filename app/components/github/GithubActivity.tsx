@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Title from "../shared/Title";
+import { motion } from "framer-motion";
 
 const ActivityCalendar = dynamic(
   () => import("react-activity-calendar").then((mod) => mod.ActivityCalendar),
@@ -117,7 +118,13 @@ export default function GithubActivity() {
   }, []);
 
   return (
-    <div className="space-y-3">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
+      viewport={{ once: true }}
+      className="space-y-3"
+    >
       {/* Header */}
       <Title upperText="Featured" lowerText="Github Activity" />
       <div>
@@ -180,6 +187,6 @@ export default function GithubActivity() {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

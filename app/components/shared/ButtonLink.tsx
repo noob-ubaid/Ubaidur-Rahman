@@ -8,6 +8,7 @@ const ButtonLink = () => {
       initial={{ y: 10, opacity: 0 }}
       whileInView={{y:0,opacity:1}}
       transition={{duration : 0.2}}
+      viewport={{once:true}}
       className="mt-8 flex items-center justify-center"
     >
       <Link href={"/blogs"} className="btn-design">

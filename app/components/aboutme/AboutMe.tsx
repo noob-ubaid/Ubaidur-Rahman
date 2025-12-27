@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
-import GithubActivity from "../github/GithubActivity";
 import Title from "../shared/Title";
 import Image from "next/image";
 import Skills from "../techStack/Skills";
@@ -116,10 +115,6 @@ const AboutMe = () => {
             </motion.div>
           </motion.div>
         </div>
-
-        <motion.div variants={itemVariants} className="mt-10">
-          <GithubActivity />
-        </motion.div>
       </motion.div>
 
       {/* Modal */}
