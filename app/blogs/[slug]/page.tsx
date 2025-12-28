@@ -54,7 +54,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
       <article>
         <div
           dangerouslySetInnerHTML={{ __html: htmlContent }}
-          className="  prose prose-gray prose-p:text-text-color prose-li:text-muted-foreground prose-strong:text-foreground dark:prose-invert max-w-none w-full"
+          className="  prose prose-gray prose-p:text-text-color prose-li:text-muted-foreground prose-h1:text-[27px] sm:prose-h1:text-[32px] prose-strong:text-foreground dark:prose-invert max-w-none w-full"
         ></div>
       </article>
     </main>
