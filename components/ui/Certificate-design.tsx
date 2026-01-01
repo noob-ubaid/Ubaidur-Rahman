@@ -86,13 +86,9 @@ function CertificatePositionItem({ cert }: { cert: Certificate }) {
             <Link
               href={cert.certificate}
               target="_blank"
-              className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="group flex items-center gap-1 hover:underline text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              View Certificate
-              <GoArrowRight
-                size={16}
-                className="transition-transform group-hover:translate-x-0.5"
-              />
+              Certificate
             </Link>
             <div className="text-muted-foreground [&_svg]:size-4">
               <ChevronsDownUpIcon className="hidden group-data-[state=open]/certificate:block" />
