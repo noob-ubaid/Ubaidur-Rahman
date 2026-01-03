@@ -2,7 +2,6 @@
 import { ChevronsDownUpIcon, ChevronsUpDownIcon, CodeIcon } from "lucide-react";
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import { GoArrowRight } from "react-icons/go";
 import {
   Collapsible,
   CollapsibleContent,
