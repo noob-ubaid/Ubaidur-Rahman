@@ -1,5 +1,6 @@
 "use client";
 import { allProjects } from "@/app/components/projects/Projects";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -68,9 +69,12 @@ const Project = () => {
         <div className=" flex items-center  flex-wrap gap-2">
           {project.techStack.map((tech, idx) => (
             <span
-              className="px-3 py-1 font-medium text-sm rounded-full border-2 "
               key={idx}
+              className={cn(
+                "inline-flex items-center rounded-lg border bg-muted/50 px-1.5 py-0.5 font-mono text-xs text-muted-foreground"
+              )}
             >
+              {" "}
               {tech}
             </span>
           ))}
