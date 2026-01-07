@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import Title from "../shared/Title";
 import Image from "next/image";
-import Skills from "../techStack/Skills";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -110,9 +109,7 @@ const AboutMe = () => {
               How I started as a web developer →
             </motion.button>
 
-            <motion.div variants={itemVariants}>
-              <Skills />
-            </motion.div>
+            
           </motion.div>
         </div>
       </motion.div>
