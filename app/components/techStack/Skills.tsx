@@ -10,9 +10,6 @@ import MongoDB from "@/components/svgs/MongoDB";
 import PostgreSQL from "@/components/svgs/PostgreSql";
 import Nodejs from "@/components/svgs/Node";
 import Prisma from "@/components/svgs/Prisma";
-import Title from "../shared/Title";
-import TailwindCSS from "@/components/svgs/TailwindCss";
-import Git from "@/components/svgs/GIt";
 
 type Skill = {
   name: string;
@@ -20,14 +17,12 @@ type Skill = {
 };
 
 const skills: Skill[] = [
-  { name: "Tailwind CSS", icon: <TailwindCSS className="size-4 sm:size-5" /> },
   { name: "JavaScript", icon: <JavaScript className="size-4 sm:size-5" /> },
   { name: "TypeScript", icon: <TypeScript className="size-4 sm:size-5" /> },
   { name: "React ", icon: <React className="size-4 sm:size-5" /> },
   { name: "Next.js", icon: <NextjsIcon className="size-4 sm:size-5" /> },
   { name: "Prisma", icon: <Prisma className="size-4 sm:size-5" /> },
   { name: "Node.js", icon: <Nodejs className="size-4 sm:size-5" /> },
-  { name: "Git", icon: <Git className="size-4 sm:size-5" /> },
   { name: "Express.js", icon: <Expressjs className="size-4 sm:size-5" /> },
   { name: "MongoDB", icon: <MongoDB className="size-4 sm:size-5" /> },
   { name: "PostgreSQL", icon: <PostgreSQL className="size-4 sm:size-5" /> },
@@ -37,14 +32,14 @@ export default function Skills() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <div className="mt-10">
-      <Title upperText="Tech" lowerText="Stack" />
+    <div>
+      <p className="font-medium text-text-color">Tech Stack</p>
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25, delay: 0.1 }}
         viewport={{ once: true }}
-        className="flex items-center gap-0.5 sm:gap-1 mt-3"
+        className="flex items-center gap-0.5 sm:gap-1 mt-1"
       >
         {skills.map((skill, index) => {
           const isHovered = hovered === index;

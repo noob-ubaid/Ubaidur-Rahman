@@ -4,7 +4,6 @@ import FeaturedBlogs from "./components/FeaturedBlogs/FeaturedBlogs";
 import Hero from "./components/Hero/Hero";
 import GithubActivity from "./components/github/GithubActivity";
 import Certificate from "./components/FeaturedCertificate/Certificate";
-import Skills from "./components/techStack/Skills";
 
 export default function Home() {
   return (
@@ -12,7 +11,6 @@ export default function Home() {
       <Hero />
       <Projects />
       <AboutMe />
-      <Skills/>
       <GithubActivity />
       <FeaturedBlogs />
       <Certificate/>
