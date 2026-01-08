@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { GrLocation } from "react-icons/gr";
 import { MdCall } from "react-icons/md";
@@ -51,18 +52,26 @@ const MoreAboutMe = () => {
     },
   ];
   return (
-    <div className=" mt-12">
+    <div className="mt-12">
       <Title upperText="Other" lowerText="Information" />
       <div className="grid grid-cols-12 gap-2.5 sm:gap-4 mt-5">
         {moreAboutMe.map((about, idx) => (
-          <div key={idx} className="col-span-12 sm:col-span-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.23, delay: 0.05 * idx }}
+            viewport={{ once: true }}
+            layout
+            key={idx}
+            className="col-span-12 sm:col-span-6"
+          >
             <div className="flex items-center gap-3">
               <div className="p-[3px] rounded-md bg-gray-200/70 dark:bg-second-dark w-fit">
                 {about.icon}
               </div>
-              <p className=" ">{about.text}</p>
+              <p className=" font-medium">{about.text}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
