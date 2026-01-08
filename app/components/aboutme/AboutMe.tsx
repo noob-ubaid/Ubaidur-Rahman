@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import Title from "../shared/Title";
 import Image from "next/image";
-import { GrLocation } from "react-icons/gr";
-import { MdCall } from "react-icons/md";
 import Skills from "../techStack/Skills";
 const containerVariants: Variants = {
   hidden: {},
