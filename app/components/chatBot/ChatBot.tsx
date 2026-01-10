@@ -25,10 +25,10 @@ const ChatBot = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.15 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="fixed right-3 bottom-20 sm:right-6 sm:bottom-24 z-50 w-[320px] h-[430px] bg-black dark:bg-white text-white dark:text-black border border-gray-700 dark:border-gray-300 rounded-xl shadow-2xl flex flex-col"
+            className=" fixed inset-x-0 bottom-20 mx-auto z-50 w-[92vw] h-[70vh] max-w-[420px] sm:right-6 sm:bottom-28 sm:inset-x-auto sm:mx-0 sm:w-[550px] sm:h-[580px] bg-black dark:bg-white text-white dark:text-black border border-gray-700 dark:border-gray-300 rounded-xl shadow-2xl flex flex-col"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-3 border-b border-gray-700 dark:border-gray-300">
+            <div className="flex items-center justify-between p-4 border-b border-gray-700 dark:border-gray-300">
               <div className="flex items-center gap-4">
                 <div className="relative w-12 h-12 rounded-md overflow-hidden">
                   <Image
@@ -41,8 +41,11 @@ const ChatBot = () => {
                 </div>
                 <span className="font-semibold">Ubaidur's Assistant</span>
               </div>
-              <button onClick={() => setShowChat(false)}>
-                <FiX size={18} />
+              <button
+                className="p-2 bg-second-dark/80 text-gray-400 hover:text-white hover:bg-second-dark duration-200 rounded-md"
+                onClick={() => setShowChat(false)}
+              >
+                <FiX size={19} />
               </button>
             </div>
 
