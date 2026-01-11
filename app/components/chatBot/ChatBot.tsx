@@ -51,7 +51,7 @@ const ChatBot = () => {
 
             {/* Chat Body */}
             <div className="flex-1 p-3 overflow-y-auto text-sm">
-              <div className="bg-gray-800 dark:bg-gray-200 dark:text-black w-[70%] sm:w-[60%] p-2 rounded-lg ">
+              <div className="bg-gray-800 dark:bg-gray-200 dark:text-black w-[70%] p-2 rounded-md ">
                 Hi 👋 I'm Ubaidur's Portfolio Assistant. How can I help you?
               </div>
             </div>
@@ -61,7 +61,7 @@ const ChatBot = () => {
               <input
                 type="text"
                 placeholder="Type a message..."
-                className="w-full px-3 py-2 rounded-lg bg-gray-900 dark:bg-gray-100 text-white dark:text-black outline-none"
+                className="w-full px-3 py-2 rounded-md bg-gray-900 dark:bg-gray-100 text-white dark:text-black outline-none"
               />
             </div>
           </motion.div>
