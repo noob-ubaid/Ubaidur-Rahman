@@ -33,9 +33,6 @@ export const useThemeToggle = ({
 
     let styleElement = document.getElementById(styleId) as HTMLStyleElement;
 
-    console.log("style ELement", styleElement);
-    console.log("name", name);
-
     if (!styleElement) {
       styleElement = document.createElement("style");
       styleElement.id = styleId;
@@ -43,8 +40,6 @@ export const useThemeToggle = ({
     }
 
     styleElement.textContent = css;
-
-    console.log("content updated");
   }, []);
 
   const toggleTheme = useCallback(() => {
@@ -84,6 +79,18 @@ export const useThemeToggle = ({
     isDark,
     setIsDark,
   ]);
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")
+        return;
+      if (e.key.toLowerCase() === "t") {
+        toggleTheme();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [toggleTheme]);
 
   const setCrazyLightTheme = useCallback(() => {
     setIsDark(false);
