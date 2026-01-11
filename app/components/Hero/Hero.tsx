@@ -83,7 +83,7 @@ const Hero = () => {
         />
         . With a strong focus on clean{" "}
         <span className="font-semibold text-black dark:text-white">UI</span> ,
-        user experience, and{" "}
+        user experience and{" "}
         <span className="font-semibold text-black dark:text-white">
           performance
         </span>

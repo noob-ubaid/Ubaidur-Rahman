@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { IoIosSearch } from "react-icons/io";
 interface nav {
   id: number;
   label: string;
@@ -84,8 +85,10 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3">
+          <button className="keyboard-button hidden lg:flex text-xs items-center gap-1">
+            <IoIosSearch size={19} /> <p>CTRL + K</p>
+          </button>
           <ThemeToggleButton variant="circle" start="top-right" blur />
-
           {/* Mobile Hamburger */}
           <div
             className="sm:hidden relative"
