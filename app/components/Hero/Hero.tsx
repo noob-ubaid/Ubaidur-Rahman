@@ -46,8 +46,12 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, scale:0.8 },
-  visible: { opacity: 1, scale:1, transition: { duration: 0.25, ease: "easeOut" } },
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.25, ease: "easeOut" },
+  },
 };
 const Hero = () => {
   return (
@@ -74,7 +78,7 @@ const Hero = () => {
           href={typeScript.doc}
         />{" "}
         , <TechButton icon={Nextjs} name={next.name} href={next.doc} /> ,{" "}
-        <TechButton icon={Expressjs} name={express.name} href={express.doc} /> ,
+        <TechButton icon={Expressjs} name={express.name} href={express.doc} />{" "}
         and{" "}
         <TechButton
           icon={PostgreSQL}

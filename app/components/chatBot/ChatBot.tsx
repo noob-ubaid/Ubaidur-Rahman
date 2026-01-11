@@ -42,7 +42,7 @@ const ChatBot = () => {
                 <span className="font-semibold">Ubaidur's Assistant</span>
               </div>
               <button
-                className="p-2 bg-second-dark/80 text-gray-400 hover:text-white hover:bg-second-dark duration-200 rounded-md"
+                className="p-2 bg-second-dark/80 text-gray-400 dark:bg-neutral-800 hover:text-white hover:bg-second-dark duration-200 rounded-md"
                 onClick={() => setShowChat(false)}
               >
                 <FiX size={19} />
@@ -51,8 +51,8 @@ const ChatBot = () => {
 
             {/* Chat Body */}
             <div className="flex-1 p-3 overflow-y-auto text-sm">
-              <div className="bg-gray-800 dark:bg-gray-200 dark:text-black p-2 rounded-lg w-fit">
-                Hi 👋 How can I help you?
+              <div className="bg-gray-800 dark:bg-gray-200 dark:text-black w-[70%] sm:w-[60%] p-2 rounded-lg ">
+                Hi 👋 I'm Ubaidur's Portfolio Assistant. How can I help you?
               </div>
             </div>
 
