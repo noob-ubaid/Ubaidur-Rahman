@@ -179,8 +179,8 @@ export const allProjects: Project[] = [
       "Data visualization with charts",
     ],
     liveLink: "https://dev-forum-by-ubaid.netlify.app",
-    clientLink: "https://github.com/noob-ubaid/devdit-client",
-    serverLink: "https://github.com/noob-ubaid/devdit-server",
+    clientLink: "https://github.com/ubaidurxdev/devdit-client",
+    serverLink: "https://github.com/ubaidurxdev/devdit-server",
   },
   {
     id: 3,
@@ -250,8 +250,8 @@ export const allProjects: Project[] = [
       "Client/server deployment workflow",
     ],
     liveLink: "https://social-development-by-ubaid.netlify.app",
-    clientLink: "https://github.com/noob-ubaid/Social-Development",
-    serverLink: "https://github.com/noob-ubaid/Social-development-server",
+    clientLink: "https://github.com/ubaidurxdev/Social-Development",
+    serverLink: "https://github.com/ubaidurxdev/Social-development-server",
   },
   {
     id: 4,
@@ -316,8 +316,8 @@ export const allProjects: Project[] = [
       "Responsive layouts",
     ],
     liveLink: "https://recipe-book-by-ubaid.netlify.app",
-    clientLink: "https://github.com/noob-ubaid/Recipe-app",
-    serverLink: "https://github.com/noob-ubaid/Recipe-book-server",
+    clientLink: "https://github.com/ubaidurxdev/Recipe-app",
+    serverLink: "https://github.com/ubaidurxdev/Recipe-book-server",
   },
 ];
 const Projects = () => {

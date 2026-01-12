@@ -27,7 +27,7 @@ const SocialIcons = () => {
     {
       id: 3,
       name: "GitHub",
-      url: "https://github.com/noob-ubaid",
+      url: "https://github.com/ubaidurxdev",
       icon: <GitHub className="size-5 " />,
     },
     {
