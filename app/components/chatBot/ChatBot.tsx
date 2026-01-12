@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FiMessageCircle, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { Input } from "@/components/ui/input";
 
 const ChatBot = () => {
   const [showChat, setShowChat] = useState(false);
@@ -52,16 +53,18 @@ const ChatBot = () => {
             {/* Chat Body */}
             <div className="flex-1 p-3 overflow-y-auto text-sm">
               <div className="bg-gray-800 dark:bg-gray-200 dark:text-black w-[70%] p-2 rounded-md ">
-                Hi 👋 I'm Ubaidur's Portfolio Assistant. How can I help you?
+                Hi 👋 I'm Ubaidur's Assistant. How can I help you?
               </div>
             </div>
 
             {/* Input */}
             <div className="p-3 border-t border-gray-700 dark:border-gray-300">
-              <input
+              <Input
                 type="text"
-                placeholder="Type a message..."
-                className="w-full px-3 py-2 rounded-md bg-gray-900 dark:bg-gray-100 text-white dark:text-black outline-none"
+                required
+                className="border border-gray-700 dark:border-gray-300 py-5"
+                placeholder="Ask me about my skills or projects..."
+                id="name"
               />
             </div>
           </motion.div>
