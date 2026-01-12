@@ -21,7 +21,7 @@ const SocialIcons = () => {
     {
       id: 2,
       name: "Twitter",
-      url: "https://x.com/UbaidurRah24983?t=dXrrCouR6TD9CaqpfD2DGQ&s=08",
+      url: "https://x.com/ubaidurxdev?t=dXrrCouR6TD9CaqpfD2DGQ&s=08",
       icon: <XformerlyTwitter className="size-5 " />,
     },
     {
