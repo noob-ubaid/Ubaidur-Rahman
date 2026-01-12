@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { KeyboardEvent, useEffect, useState } from "react";
 import { FiMessageCircle, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -8,6 +8,17 @@ import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
 const ChatBot = () => {
   const [showChat, setShowChat] = useState(false);
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") return;
+      if (e.key.toLowerCase() === "c") {
+        setShowChat(!showChat);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [showChat, setShowChat]);
 
   return (
     <>
