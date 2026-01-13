@@ -53,7 +53,10 @@ const ChatBot = () => {
                     priority
                   />
                 </div>
-                <span className="font-semibold">Ubaidur's Assistant</span>
+                <div>
+                  <p className="font-semibold">Ubaidur's Assistant</p>
+                  <p className="text-text-color">Full Stack Developer</p>
+                </div>
               </div>
               <button
                 className="p-2 bg-second-dark/80 text-gray-400 dark:bg-gray-200/70 dark:hover:text-black dark:hover:bg-gray-200 hover:text-white hover:bg-second-dark duration-200 rounded-md"
