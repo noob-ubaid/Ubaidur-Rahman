@@ -1,5 +1,5 @@
 export const githubConfig = {
-  username: 'noob-ubaid',
+  username: 'ubaidurxdev',
   apiUrl: 'https://github-contributions-api.deno.dev',
 
   // Display settings

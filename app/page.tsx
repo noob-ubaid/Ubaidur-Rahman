@@ -5,7 +5,6 @@ import Hero from "./components/Hero/Hero";
 import GithubActivity from "./components/github/GithubActivity";
 import Certificate from "./components/FeaturedCertificate/Certificate";
 import MoreAboutMe from "./components/MoreAboutMe/MoreAboutMe";
-import ChatBot from "./components/chatBot/ChatBot";
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
       <Hero />
       <Projects />
       <AboutMe />
-      <ChatBot/>
       <MoreAboutMe/>
       <GithubActivity />
       <FeaturedBlogs />
