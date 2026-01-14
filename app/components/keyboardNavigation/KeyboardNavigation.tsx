@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 const KeyboardNavigation = () => {
   const router = useRouter();
-  const pathname = usePathname(); 
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -16,8 +16,13 @@ const KeyboardNavigation = () => {
       if (e.key.toLowerCase() === "b" && pathname !== "/blogs") {
         router.push("/blogs");
       }
-      if(e.key.toLocaleLowerCase() === "c" && pathname !== "/contact"){
-        router.push("/contact")
+      // Only navigate to /contact if not already on /contact
+      if (e.key.toLocaleLowerCase() === "c" && pathname !== "/contact") {
+        router.push("/contact");
+      }
+      // Only navigate to /resume if not already on /resume
+      if(e.key.toLocaleLowerCase() === "r" && pathname !== "/resume"){
+        router.push("/resume")
       }
     };
 
@@ -25,7 +30,7 @@ const KeyboardNavigation = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [router, pathname]);
 
-  return null; 
+  return null;
 };
 
 export default KeyboardNavigation;
