@@ -24,6 +24,10 @@ const KeyboardNavigation = () => {
       if(e.key.toLocaleLowerCase() === "r" && pathname !== "/resume"){
         router.push("/resume")
       }
+      // Only navigate to / if not already on /
+      if(e.key.toLocaleLowerCase() === "h" && pathname !== "/"){
+        router.push("/")
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
