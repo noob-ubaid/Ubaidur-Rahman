@@ -28,6 +28,9 @@ const KeyboardNavigation = () => {
       if(e.key.toLocaleLowerCase() === "h" && pathname !== "/"){
         router.push("/")
       }
+      if(e.key.toLocaleLowerCase() === "g"){
+        router.push("https://github.com/ubaidurxdev")
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
