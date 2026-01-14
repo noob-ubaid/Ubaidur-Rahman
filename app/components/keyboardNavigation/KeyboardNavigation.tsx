@@ -1,11 +1,11 @@
-"use client"; // Must be a Client Component
+"use client";
 
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 const KeyboardNavigation = () => {
   const router = useRouter();
-  const pathname = usePathname(); // current path
+  const pathname = usePathname(); 
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -16,13 +16,16 @@ const KeyboardNavigation = () => {
       if (e.key.toLowerCase() === "b" && pathname !== "/blogs") {
         router.push("/blogs");
       }
+      if(e.key.toLocaleLowerCase() === "c" && pathname !== "/contact"){
+        router.push("/contact")
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [router, pathname]);
 
-  return null; // this component doesn’t render anything
+  return null; 
 };
 
 export default KeyboardNavigation;
