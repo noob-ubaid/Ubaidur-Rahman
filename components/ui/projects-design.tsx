@@ -16,9 +16,8 @@ import { cn } from "@/lib/utils";
 import { Project } from "@/app/components/projects/Projects";
 import Link from "next/link";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
-import { TbWorld } from "react-icons/tb";
 import { motion } from "framer-motion";
-
+import { BiWorld } from "react-icons/bi";
 const iconMap = {
   project: CodeXmlIcon,
 } as const;
@@ -106,7 +105,7 @@ export function ExperiencePositionItem({ project }: { project: Project }) {
                   target="_blank"
                   className="rounded-md p-1.5 text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <TbWorld size={18} />
+                  <BiWorld size={18} />
                 </a>
               </TooltipTrigger>
               <TooltipContent>

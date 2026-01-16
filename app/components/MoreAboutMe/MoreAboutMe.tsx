@@ -7,7 +7,6 @@ import Title from "../shared/Title";
 import { MdOutlineMail } from "react-icons/md";
 import { MdAccessTime } from "react-icons/md";
 import { CgGenderMale } from "react-icons/cg";
-import { IoCodeSlashSharp } from "react-icons/io5";
 import { LuCodeXml } from "react-icons/lu";
 const MoreAboutMe = () => {
   const [time, setTime] = useState("00:00:00");
