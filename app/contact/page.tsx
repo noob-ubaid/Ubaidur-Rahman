@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Send } from "lucide-react";
 import { useState } from "react";
+import PageHeader from "../components/PageHeader/PageHeader";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -15,8 +16,12 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, scale:0.8 },
-  show: { opacity: 1, scale:1, transition: { duration: 0.2, ease: "easeOut" } },
+  hidden: { opacity: 0, scale: 0.8 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.2, ease: "easeOut" },
+  },
 };
 type FormData = {
   name: string;
@@ -41,20 +46,12 @@ const Page = () => {
       initial="hidden"
       animate="show"
     >
-      <motion.h2
-        className="text-2xl sm:text-3xl font-bold text-center"
-        variants={itemVariants}
-      >
-        Contact Me
-      </motion.h2>
-
-      <motion.div className="pb-5 border-b-2" variants={itemVariants}>
-        <p className="text-center text-text-color mt-6">
-          Don’t hesitate to get in touch—whether it’s a new project idea or a
+      <PageHeader
+        title="Conact Me"
+        description="Don’t hesitate to get in touch—whether it’s a new project idea or a
           collaboration invite. I’m eager to connect and typically respond
-          within a day. Let’s create something amazing together!
-        </p>
-      </motion.div>
+          within a day. Let’s create something amazing together!"
+      />
 
       <motion.div className="mt-8" variants={itemVariants}>
         <h4 className="font-medium">Send me a message</h4>
