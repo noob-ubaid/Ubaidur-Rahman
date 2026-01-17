@@ -46,7 +46,7 @@ const PageHeader = ({
 
       <motion.p
         variants={fadeUpVariants}
-        className="pb-5 border-b-2 text-center text-text-color mt-6"
+        className="pb-5 border-b-2 text-[15px] sm:text-base text-center text-text-color mt-6"
       >
         {description}
       </motion.p>

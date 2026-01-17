@@ -26,7 +26,7 @@ export default function ResumePage() {
         title=" Resume of Md Ubaidur Rahman"
         description=" A concise summary of my technical skills, experience, and projects as a
         web developer. This resume reflects my journey, capabilities, and the
-        value I bring as a MERN Stack Developer."
+        value I bring as a full Stack Developer."
       />
       {/* Embedded Resume */}
       <div className="mt-8">
