@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { resumeConfig } from "../config/resume";
-import ResumeHeaader from "../components/resumeHeader/ResumeHeaader";
+import PageHeader from "../components/PageHeader/PageHeader";
 
 export const metadata: Metadata = {
   title: "Resume | Md. Ubaidur Rahman",
@@ -22,9 +22,12 @@ export default function ResumePage() {
   return (
     <div className="pb-14">
       {/* Title */}
-      <div className="border-b-2 pb-5 text-center">
-        <ResumeHeaader />
-      </div>
+      <PageHeader
+        title=" Resume of Md Ubaidur Rahman"
+        description=" A concise summary of my technical skills, experience, and projects as a
+        web developer. This resume reflects my journey, capabilities, and the
+        value I bring as a MERN Stack Developer."
+      />
       {/* Embedded Resume */}
       <div className="mt-8">
         <iframe
