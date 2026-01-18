@@ -21,16 +21,16 @@ const KeyboardNavigation = () => {
         router.push("/contact");
       }
       // Only navigate to /resume if not already on /resume
-      if(e.key.toLocaleLowerCase() === "r" && pathname !== "/resume"){
-        router.push("/resume")
+      if (e.key.toLocaleLowerCase() === "r" && pathname !== "/resume") {
+        router.push("/resume");
       }
       // Only navigate to / if not already on /
-      if(e.key.toLocaleLowerCase() === "h" && pathname !== "/"){
-        router.push("/")
+      if (e.key.toLocaleLowerCase() === "h" && pathname !== "/") {
+        router.push("/");
       }
-        // Only navigate to github account 
-      if(e.key.toLocaleLowerCase() === "g"){
-        router.push("https://github.com/ubaidurxdev")
+      // Only navigate to github account
+      if (e.key.toLocaleLowerCase() === "g") {
+        router.push("https://github.com/ubaidurxdev");
       }
     };
 

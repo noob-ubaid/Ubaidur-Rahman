@@ -157,10 +157,10 @@
            dark:bg-input/30 dark:border-input dark:hover:bg-input/50
            h-9 py-4.5 px-2 
            shadow-[inset_0_0_15px_rgba(0,0,0,0.08)]
-           inset-shadow-indigo-500
+           inset-shadow-indigo-500;
   }
-  .keyboard-key{
-    @apply p-[3px] bg-[#F2F2F2] dark:bg-[#2A2A2B] group-hover:bg-gray-200/80 dark:group-hover:bg-[#2A2A2B] text-text-color rounded-[3px]
+  .keyboard-key {
+    @apply p-[3px] bg-[#F2F2F2] dark:bg-[#2A2A2B] group-hover:bg-gray-200/80 dark:group-hover:bg-[#2A2A2B] text-text-color rounded-[3px];
   }
 
   .btn-design svg {
@@ -187,8 +187,6 @@ mark[data-highlighted-chars] {
 code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
-
-  /* Other styling */
   display: inline-block;
   width: 0.75rem;
   margin-right: 2rem;
