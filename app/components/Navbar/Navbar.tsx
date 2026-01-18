@@ -21,7 +21,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const handleKeyboardModal = () => {
-    setShowModal(!showModal);
+    setShowModal(true);
   };
 
   const menuRef = useRef<HTMLDivElement>(null);
@@ -57,113 +57,115 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="bg-transparent sticky top-0 backdrop-blur-sm  z-50">
-      <div className="max-w-[720px] mx-auto flex py-5 px-4 sm:px-0 items-center justify-between">
-        <div>
-          <Logo />
-        </div>
+    <>
+      <header className="bg-transparent sticky top-0 backdrop-blur-sm  z-50">
+        <div className="max-w-[720px] mx-auto flex py-5 px-4 sm:px-0 items-center justify-between">
+          <div>
+            <Logo />
+          </div>
 
-        {/* Desktop Links */}
-        <div className="md:flex items-center hidden">
-          {navItems.map((item, idx) => (
-            <Link
-              href={item.href}
-              key={item.id}
-              onMouseEnter={() => setHovered(idx)}
-              onMouseLeave={() => setHovered(null)}
-              className="relative px-3 py-1 "
-            >
-              {hovered === idx && (
-                <motion.span
-                  className="absolute inset-0 h-full w-full rounded-sm bg-neutral-100 dark:bg-second-dark"
-                  layoutId="hovered-span"
-                />
-              )}
-              <span
-                className={`relative z-10 ${
-                  item.href === pathname ? "font-bold" : ""
-                }`}
+          {/* Desktop Links */}
+          <div className="md:flex items-center hidden">
+            {navItems.map((item, idx) => (
+              <Link
+                href={item.href}
+                key={item.id}
+                onMouseEnter={() => setHovered(idx)}
+                onMouseLeave={() => setHovered(null)}
+                className="relative px-3 py-1 "
               >
-                {item.label}
-              </span>
-            </Link>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => handleKeyboardModal()}
-            className="keyboard-button hidden lg:flex group text-xs items-center text-text-color gap-1"
-          >
-            <IoIosSearch size={19} />
-            <p>
-              {" "}
-              <span className="keyboard-key">CTRL</span> +{" "}
-              <span className="keyboard-key px-1.5">K</span>
-            </p>
-          </button>
-          <ThemeToggleButton variant="circle" start="top-right" blur />
-          {/* Mobile Hamburger */}
-          <div
-            className="sm:hidden relative"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <button className="p-1 rounded-md  border-3 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-              <motion.div
-                key={isMenuOpen ? "x" : "menu"}
-                initial={{ rotate: 0, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </motion.div>
-            </button>
-
-            <AnimatePresence>
-              {isMenuOpen && (
-                <motion.div
-                  ref={menuRef}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-lg rounded-md overflow-hidden flex flex-col"
+                {hovered === idx && (
+                  <motion.span
+                    className="absolute inset-0 h-full w-full rounded-sm bg-neutral-100 dark:bg-second-dark"
+                    layoutId="hovered-span"
+                  />
+                )}
+                <span
+                  className={`relative z-10 ${
+                    item.href === pathname ? "font-bold" : ""
+                  }`}
                 >
-                  {navItems.map((item, idx) => (
-                    <Link
-                      href={item.href}
-                      key={item.id}
-                      className="relative px-4 py-2 text-center overflow-hidden"
-                      onMouseEnter={() => setHovered(idx)}
-                      onMouseLeave={() => setHovered(null)}
-                    >
-                      <AnimatePresence>
-                        {hovered === idx && (
-                          <motion.span
-                            layoutId="hovered-span"
-                            className="absolute inset-0 rounded-sm bg-neutral-100 dark:bg-second-dark"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                          />
-                        )}
-                      </AnimatePresence>
+                  {item.label}
+                </span>
+              </Link>
+            ))}
+          </div>
 
-                      <span className="relative z-10">{item.label}</span>
-                    </Link>
-                  ))}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => handleKeyboardModal()}
+              className="keyboard-button hidden lg:flex group text-xs items-center text-text-color gap-1"
+            >
+              <IoIosSearch size={19} />
+              <p>
+                {" "}
+                <span className="keyboard-key">CTRL</span> +{" "}
+                <span className="keyboard-key px-1.5">K</span>
+              </p>
+            </button>
+            <ThemeToggleButton variant="circle" start="top-right" blur />
+            {/* Mobile Hamburger */}
+            <div
+              className="sm:hidden relative"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <button className="p-1 rounded-md  border-3 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                <motion.div
+                  key={isMenuOpen ? "x" : "menu"}
+                  initial={{ rotate: 0, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </motion.div>
-              )}
-            </AnimatePresence>
+              </button>
+
+              <AnimatePresence>
+                {isMenuOpen && (
+                  <motion.div
+                    ref={menuRef}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-lg rounded-md overflow-hidden flex flex-col"
+                  >
+                    {navItems.map((item, idx) => (
+                      <Link
+                        href={item.href}
+                        key={item.id}
+                        className="relative px-4 py-2 text-center overflow-hidden"
+                        onMouseEnter={() => setHovered(idx)}
+                        onMouseLeave={() => setHovered(null)}
+                      >
+                        <AnimatePresence>
+                          {hovered === idx && (
+                            <motion.span
+                              layoutId="hovered-span"
+                              className="absolute inset-0 rounded-sm bg-neutral-100 dark:bg-second-dark"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ duration: 0.2 }}
+                            />
+                          )}
+                        </AnimatePresence>
+
+                        <span className="relative z-10">{item.label}</span>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* show keyboard modal  */}
-      {showModal && <KeyboardModal />}
-    </header>
+      {showModal && <KeyboardModal setShowModal={setShowModal} />}
+    </>
   );
 };
 
