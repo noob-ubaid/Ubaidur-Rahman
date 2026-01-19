@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Input } from "@/components/ui/input";
+import { IoIosSearch } from "react-icons/io";
 
 const KeyboardModal = ({
   setShowModal,
@@ -17,9 +19,15 @@ const KeyboardModal = ({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-xl h-96 bg-gray-50 dark:bg-neutral-800 p-3 rounded-md"
+        className="w-xl h-96 bg-gray-50 dark:bg-neutral-800 p-2 rounded-md"
       >
-        fs
+        <div className="flex items-center gap-1 border-b pb-1">
+          <IoIosSearch size={20} color="gray" />
+          <input
+            className="w-full py-0.5 outline-none border-none"
+            placeholder="Type a command or search..."
+          />
+        </div>
       </div>
     </motion.div>
   );
