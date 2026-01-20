@@ -105,13 +105,13 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleKeyboardModal()}
-              className="keyboard-button hidden lg:flex group text-xs items-center text-text-color gap-1"
+              className="border-3 p-2 rounded-md hidden lg:flex group text-xs items-center text-text-color gap-1"
             >
               <IoIosSearch size={19} />
               <p>
                 {" "}
                 <span className="keyboard-key">CTRL</span> +{" "}
-                <span className="keyboard-key px-1.5">K</span>
+                <span className="keyboard-key px-1">K</span>
               </p>
             </button>
             <ThemeToggleButton variant="circle" start="top-right" blur />

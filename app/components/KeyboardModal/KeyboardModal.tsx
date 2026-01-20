@@ -69,11 +69,11 @@ const KeyboardModal = ({
               <p className="text-text-color font-semibold mt-2 text-sm ">
                 {short.name}
               </p>
-              <div className="space-y-3 mt-2">
+              <div className="space-y-2.5 mt-2">
                 {short.allShortCut.map((key, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center duration-200 hover:bg-gray-200/60 dark:hover:bg-neutral-700 p-1 rounded-md justify-between"
+                    className="flex items-center duration-200 hover:bg-gray-200/60 dark:hover:bg-neutral-700 p-1.5 rounded-md justify-between"
                   >
                     <div className="flex items-center gap-3">
                       {key.icon}
@@ -101,3 +101,5 @@ const KeyboardModal = ({
 };
 
 export default KeyboardModal;
+
+
