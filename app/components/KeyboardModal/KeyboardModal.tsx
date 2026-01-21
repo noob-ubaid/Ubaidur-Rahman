@@ -8,8 +8,9 @@ import { LuFileText } from "react-icons/lu";
 import { FiMessageCircle } from "react-icons/fi";
 import { IoSunnyOutline } from "react-icons/io5";
 import { IoIosArrowRoundUp } from "react-icons/io";
-import {  FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa";
 const shortCuts = [
   {
     id: 1,
@@ -70,6 +71,12 @@ const shortCuts = [
     name: "Social links",
     allShortCut: [
       {
+        icon: <FaWhatsapp size={20} color="gray" />,
+        title: "Chat on WhatsApp",
+        description: "Start a conversation with me",
+        key: "SHIFT + W",
+      },
+      {
         icon: <FaLinkedin size={20} color="gray" />,
         title: "Open Linkedin",
         description: "Checkout my LinkedIn posts",
@@ -81,7 +88,6 @@ const shortCuts = [
         description: "Checkout my Facebook posts",
         key: "SHIFT + F",
       },
-      
     ],
   },
 ];

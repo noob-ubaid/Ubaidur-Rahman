@@ -46,6 +46,11 @@ const KeyboardNavigation = () => {
           "https://www.facebook.com/ubaidur.rahman.881781?rdid=KvGRqC7VQ5zQm27c&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1FXDbMmv5i%2F#",
         );
       }
+      if (e.shiftKey && e.key.toLocaleLowerCase() === "w") {
+        router.push(
+          "https://wa.me/8801735166610",
+        );
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
