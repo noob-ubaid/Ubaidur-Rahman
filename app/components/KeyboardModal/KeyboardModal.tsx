@@ -7,6 +7,7 @@ import { IoIosCall } from "react-icons/io";
 import { LuFileText } from "react-icons/lu";
 import { FiMessageCircle } from "react-icons/fi";
 import { IoSunnyOutline } from "react-icons/io5";
+import { IoIosArrowRoundUp } from "react-icons/io";
 const shortCuts = [
   {
     id: 1,
@@ -53,6 +54,12 @@ const shortCuts = [
         title: "Toggle theme",
         description: "Change to light or dark mode",
         key: "T",
+      },
+      {
+        icon: <IoIosArrowRoundUp size={20} color="gray" />,
+        title: "Scroll to top",
+        description: "Scroll to top of the page",
+        key: `SHIFT + ↑`,
       },
     ],
   },
