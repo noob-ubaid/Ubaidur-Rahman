@@ -8,6 +8,7 @@ import { LuFileText } from "react-icons/lu";
 import { FiMessageCircle } from "react-icons/fi";
 import { IoSunnyOutline } from "react-icons/io5";
 import { IoIosArrowRoundUp } from "react-icons/io";
+import { FaLinkedin } from "react-icons/fa";
 const shortCuts = [
   {
     id: 1,
@@ -61,6 +62,19 @@ const shortCuts = [
         description: "Scroll to top of the page",
         key: `SHIFT + ↑`,
       },
+    ],
+  },
+  {
+    id: 3,
+    name: "Social links",
+    allShortCut: [
+      {
+        icon: <FaLinkedin size={20} color="gray" />,
+        title: "Open Linkedin",
+        description: "CHeckout my LinkedIn posts",
+        key: "SHIFT + L",
+      },
+      
     ],
   },
 ];

@@ -33,8 +33,8 @@ const KeyboardNavigation = () => {
         router.push("https://github.com/ubaidurxdev");
       }
 
-      if(e.shiftKey && e.key === "ArrowUp"){
-        window.scrollTo({top:0,behavior:"smooth"})
+      if (e.shiftKey && e.key === "ArrowUp") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     };
 
