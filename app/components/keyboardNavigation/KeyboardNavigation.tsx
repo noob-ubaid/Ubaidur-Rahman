@@ -41,6 +41,11 @@ const KeyboardNavigation = () => {
           "https://www.linkedin.com/in/ubaidur-rahman01/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         );
       }
+      if (e.shiftKey && e.key.toLocaleLowerCase() === "f") {
+        router.push(
+          "https://www.facebook.com/ubaidur.rahman.881781?rdid=KvGRqC7VQ5zQm27c&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1FXDbMmv5i%2F#",
+        );
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);

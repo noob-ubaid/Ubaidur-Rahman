@@ -8,7 +8,8 @@ import { LuFileText } from "react-icons/lu";
 import { FiMessageCircle } from "react-icons/fi";
 import { IoSunnyOutline } from "react-icons/io5";
 import { IoIosArrowRoundUp } from "react-icons/io";
-import { FaLinkedin } from "react-icons/fa";
+import {  FaLinkedin } from "react-icons/fa";
+import { FaSquareFacebook } from "react-icons/fa6";
 const shortCuts = [
   {
     id: 1,
@@ -73,6 +74,12 @@ const shortCuts = [
         title: "Open Linkedin",
         description: "Checkout my LinkedIn posts",
         key: "SHIFT + L",
+      },
+      {
+        icon: <FaSquareFacebook size={20} color="gray" />,
+        title: "Open Facebook",
+        description: "Checkout my Facebook posts",
+        key: "SHIFT + F",
       },
       
     ],
