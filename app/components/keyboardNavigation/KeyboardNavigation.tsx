@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-
+import toast from 'react-hot-toast';
 const KeyboardNavigation = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -49,6 +49,7 @@ const KeyboardNavigation = () => {
       }
       if (e.shiftKey && e.key.toLocaleLowerCase() === "e") {
         navigator.clipboard.writeText("ubaidurrahman661@gmail.com");
+        toast.success('Email copied!')
       }
     };
 
