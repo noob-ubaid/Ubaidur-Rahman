@@ -9,6 +9,7 @@ import { motion, Variants } from "framer-motion";
 import TechButton from "../TechButton/TechButton";
 import SocialIcons from "../socialIcons/SocialIcons";
 import Expressjs from "@/components/svgs/Express";
+import Image from "next/image";
 
 interface TechStack {
   name: string;
@@ -61,6 +62,13 @@ const Hero = () => {
       whileInView="visible"
       viewport={{ once: true }}
     >
+      <Image
+        width={120}
+        height={120}
+        className="object-cover bg-center rounded-full"
+        src={"/hero.png"}
+        alt="Logo"
+      />
       <motion.p className="font-semibold text-3xl" variants={itemVariants}>
         Hi, I'm Ubaidur —{" "}
         <span className="text-text-color">A Full Stack Developer </span>
