@@ -51,7 +51,7 @@ const SocialIcons = () => {
   ];
 
   return (
-    <div className="flex items-center gap-1 mt-6">
+    <div className="flex items-center gap-1 mt-5">
       {socialLinks.map((skill, index) => {
         const isHovered = hovered === index;
         return (

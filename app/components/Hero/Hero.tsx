@@ -62,20 +62,27 @@ const Hero = () => {
       whileInView="visible"
       viewport={{ once: true }}
     >
-      <Image
-        width={120}
-        height={120}
-        className="object-cover bg-center rounded-full"
-        src={"/hero.png"}
-        alt="Logo"
-      />
-      <motion.p className="font-semibold text-3xl" variants={itemVariants}>
-        Hi, I'm Ubaidur —{" "}
-        <span className="text-text-color">A Full Stack Developer </span>
-      </motion.p>
+      <div className="flex items-end gap-2">
+        <motion.div variants={itemVariants}>
+          <Image
+            width={120}
+            height={120}
+            className="object-cover bg-center border-2 rounded-full"
+            src={"/hero.png"}
+            alt="Logo"
+          />
+        </motion.div>
+        <motion.p
+          className="font-semibold text-[22px] sm:text-[28px]"
+          variants={itemVariants}
+        >
+          Ubaidur —{" "}
+          <span className="text-text-color">A Full Stack Developer </span>
+        </motion.p>
+      </div>
 
       <motion.p
-        className="mt-6 text-lg text-text-color leading-9"
+        className="mt-5 text-lg text-text-color leading-9"
         variants={itemVariants}
       >
         I specialize in building fast, modern, and scalable web applications
@@ -103,7 +110,7 @@ const Hero = () => {
       </motion.p>
 
       <motion.div
-        className="mt-6 flex items-center gap-4 sm:gap-6"
+        className="mt-5 flex items-center gap-4 sm:gap-6"
         variants={itemVariants}
       >
         <Link href={"/resume"} className="btn-design">
