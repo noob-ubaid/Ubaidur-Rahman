@@ -10,6 +10,8 @@ import MongoDB from "@/components/svgs/MongoDB";
 import PostgreSQL from "@/components/svgs/PostgreSql";
 import Nodejs from "@/components/svgs/Node";
 import Prisma from "@/components/svgs/Prisma";
+import TanStack from "@/components/svgs/TanstackQuery";
+import Redux from "@/components/svgs/Redux";
 
 type Skill = {
   name: string;
@@ -21,6 +23,8 @@ const skills: Skill[] = [
   { name: "TypeScript", icon: <TypeScript className="size-4 sm:size-5" /> },
   { name: "React ", icon: <React className="size-4 sm:size-5" /> },
   { name: "Next.js", icon: <NextjsIcon className="size-4 sm:size-5" /> },
+  { name: "Tanstack Query", icon: <TanStack className="size-4 sm:size-5" /> },
+  { name: "Redux", icon: <Redux className="size-4 sm:size-5" /> },
   { name: "Prisma", icon: <Prisma className="size-4 sm:size-5" /> },
   { name: "Node.js", icon: <Nodejs className="size-4 sm:size-5" /> },
   { name: "Express.js", icon: <Expressjs className="size-4 sm:size-5" /> },
@@ -39,7 +43,7 @@ export default function Skills() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25, delay: 0.1 }}
         viewport={{ once: true }}
-        className="flex items-center -space-x-2 mt-1"
+        className="flex items-center -space-x-1.5 mt-1"
       >
         {skills.map((skill, index) => {
           const isHovered = hovered === index;
