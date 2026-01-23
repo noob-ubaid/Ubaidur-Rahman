@@ -10,7 +10,8 @@ import TechButton from "../TechButton/TechButton";
 import SocialIcons from "../socialIcons/SocialIcons";
 import Expressjs from "@/components/svgs/Express";
 import Image from "next/image";
-
+import { RiVerifiedBadgeFill } from "react-icons/ri";
+import CircuitMini from "../CircuitBackground/CircuitBackground";
 interface TechStack {
   name: string;
   doc: string;
@@ -73,10 +74,10 @@ const Hero = () => {
           />
         </motion.div>
         <motion.p
-          className="font-semibold text-[22px] sm:text-[28px]"
+          className="font-semibold flex items-center gap-1 sm:gap-2 text-[22px] sm:text-[28px]"
           variants={itemVariants}
         >
-          Ubaidur —{" "}
+          Ubaidur <RiVerifiedBadgeFill size={20}/> —{" "}
           <span className="text-text-color">A Full Stack Developer </span>
         </motion.p>
       </div>
@@ -128,6 +129,7 @@ const Hero = () => {
       <motion.div variants={itemVariants}>
         <SocialIcons />
       </motion.div>
+      <CircuitMini/>
     </motion.div>
   );
 };
