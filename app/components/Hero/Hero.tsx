@@ -12,6 +12,7 @@ import Expressjs from "@/components/svgs/Express";
 import Image from "next/image";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import CircuitMini from "../CircuitBackground/CircuitBackground";
+
 interface TechStack {
   name: string;
   doc: string;
@@ -55,6 +56,7 @@ const itemVariants: Variants = {
     transition: { duration: 0.25, ease: "easeOut" },
   },
 };
+
 const Hero = () => {
   return (
     <motion.div
@@ -62,74 +64,85 @@ const Hero = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
+      className="relative overflow-hidden"
     >
-      <div className="flex items-end gap-2">
-        <motion.div variants={itemVariants}>
-          <Image
-            width={120}
-            height={120}
-            className="object-cover bg-center border-2 rounded-full"
-            src={"/hero.png"}
-            alt="Logo"
-          />
-        </motion.div>
+      {/* Decorative circuit animation */}
+      <motion.div
+        variants={itemVariants}
+        className="absolute sm:top-52 top-[275px] right-0 opacity-60 dark:opacity-80 pointer-events-none"
+      >
+        <CircuitMini />
+      </motion.div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        <div className="flex items-end gap-2">
+          <motion.div variants={itemVariants}>
+            <Image
+              width={120}
+              height={120}
+              className="object-cover bg-center border-2 rounded-full"
+              src={"/hero.png"}
+              alt="Logo"
+            />
+          </motion.div>
+          <motion.p
+            className="font-semibold flex items-center gap-1 sm:gap-2 text-[22px] sm:text-[28px]"
+            variants={itemVariants}
+          >
+            Ubaidur <RiVerifiedBadgeFill size={20} /> —{" "}
+            <span className="text-text-color text-lg sm:text-xl">A Full Stack Developer </span>
+          </motion.p>
+        </div>
+
         <motion.p
-          className="font-semibold flex items-center gap-1 sm:gap-2 text-[22px] sm:text-[28px]"
+          className="mt-6 text-lg text-text-color leading-9"
           variants={itemVariants}
         >
-          Ubaidur <RiVerifiedBadgeFill size={20}/> —{" "}
-          <span className="text-text-color">A Full Stack Developer </span>
+          I specialize in building fast, modern, and scalable web applications
+          using <TechButton icon={React} name={react.name} href={react.doc} /> ,{" "}
+          <TechButton
+            icon={TypeScript}
+            name={typeScript.name}
+            href={typeScript.doc}
+          />{" "}
+          , <TechButton icon={Nextjs} name={next.name} href={next.doc} /> ,{" "}
+          <TechButton icon={Expressjs} name={express.name} href={express.doc} />{" "}
+          and{" "}
+          <TechButton
+            icon={PostgreSQL}
+            name={postgreSql.name}
+            href={postgreSql.doc}
+          />
+          . With a strong focus on clean{" "}
+          <span className="font-semibold text-black dark:text-white">UI</span> ,
+          user experience and{" "}
+          <span className="font-semibold text-black dark:text-white">
+            performance
+          </span>
+          .
         </motion.p>
-      </div>
 
-      <motion.p
-        className="mt-5 text-lg text-text-color leading-9"
-        variants={itemVariants}
-      >
-        I specialize in building fast, modern, and scalable web applications
-        using <TechButton icon={React} name={react.name} href={react.doc} /> ,{" "}
-        <TechButton
-          icon={TypeScript}
-          name={typeScript.name}
-          href={typeScript.doc}
-        />{" "}
-        , <TechButton icon={Nextjs} name={next.name} href={next.doc} /> ,{" "}
-        <TechButton icon={Expressjs} name={express.name} href={express.doc} />{" "}
-        and{" "}
-        <TechButton
-          icon={PostgreSQL}
-          name={postgreSql.name}
-          href={postgreSql.doc}
-        />
-        . With a strong focus on clean{" "}
-        <span className="font-semibold text-black dark:text-white">UI</span> ,
-        user experience and{" "}
-        <span className="font-semibold text-black dark:text-white">
-          performance
-        </span>
-        .
-      </motion.p>
+        <motion.div variants={itemVariants}>
+          <SocialIcons />
+        </motion.div>
 
-      <motion.div
-        className="mt-5 flex items-center gap-4 sm:gap-6"
-        variants={itemVariants}
-      >
-        <Link href={"/resume"} className="btn-design">
-          <Newspaper />
-          Resume
-        </Link>
-        <Link
-          href={"/contact"}
-          className=" px-7 flex items-center gap-2 py-2 rounded-md bg-black dark:bg-white dark:text-black text-white text-sm font-medium"
+        <motion.div
+          className="mt-6 flex items-center gap-3 sm:gap-6"
+          variants={itemVariants}
         >
-          <Send size={18} /> Get in touch
-        </Link>
-      </motion.div>
-
-      <motion.div variants={itemVariants}>
-        <SocialIcons />
-      </motion.div>
-      <CircuitMini/>
+          <Link href={"/resume"} className="btn-design">
+            <Newspaper />
+            Resume
+          </Link>
+          <Link
+            href={"/contact"}
+            className=" px-5 flex items-center gap-2 py-2 rounded-md bg-black dark:bg-white dark:text-black text-white text-sm font-medium"
+          >
+            <Send size={18} /> Get in touch
+          </Link>
+        </motion.div>
+      </div>
     </motion.div>
   );
 };

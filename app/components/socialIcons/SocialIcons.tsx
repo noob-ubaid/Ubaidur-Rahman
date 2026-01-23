@@ -51,14 +51,14 @@ const SocialIcons = () => {
   ];
 
   return (
-    <div className="flex items-center -space-x-1.5 mt-5">
+    <div className="flex items-center -space-x-1.5 mt-6">
       {socialLinks.map((skill, index) => {
         const isHovered = hovered === index;
         return (
           <a href={skill.url} target="_blank" key={index}>
             <motion.div
               layout
-              className="border-2 p-1.5 rounded-full bg-white dark:bg-black flex cursor-pointer overflow-hidden"
+              className="border dark:border-neutral-700 p-1.5 rounded-full bg-white dark:bg-black flex cursor-pointer overflow-hidden"
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
               animate={{ opacity: isHovered ? 1 : 0.85 }}
