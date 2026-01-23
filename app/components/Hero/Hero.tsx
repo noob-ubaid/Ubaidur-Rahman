@@ -91,7 +91,9 @@ const Hero = () => {
             variants={itemVariants}
           >
             Ubaidur <RiVerifiedBadgeFill size={20} /> —{" "}
-            <span className="text-text-color text-lg sm:text-xl">A Full Stack Developer </span>
+            <span className="text-text-color text-lg sm:text-xl">
+              A Full Stack Developer{" "}
+            </span>
           </motion.p>
         </div>
 
@@ -116,7 +118,8 @@ const Hero = () => {
           />
           . With a strong focus on clean{" "}
           <span className="font-semibold text-black dark:text-white">UI</span> ,{" "}
-          <span className="font-semibold text-black dark:text-white">UX</span> and{" "}
+          <span className="font-semibold text-black dark:text-white">UX</span>{" "}
+          and{" "}
           <span className="font-semibold text-black dark:text-white">
             performance
           </span>
