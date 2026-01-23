@@ -69,14 +69,15 @@ const Hero = () => {
       {/* Decorative circuit animation */}
       <motion.div
         variants={itemVariants}
-        className="absolute sm:top-56 top-[285px] right-0 opacity-60 dark:opacity-80 pointer-events-none"
+        className="absolute sm:top-56 top-[315px] right-0 opacity-60 dark:opacity-80 pointer-events-none"
       >
         <CircuitMini />
+       
       </motion.div>
 
       {/* Content */}
       <div className="relative z-10">
-        <div className="flex items-end gap-2">
+        <div className="flex items-end gap-1 sm:gap-2">
           <motion.div variants={itemVariants}>
             <Image
               width={120}
@@ -88,12 +89,16 @@ const Hero = () => {
           </motion.div>
           <div className="flex items-start sm:items-center gap-0 sm:gap-2 flex-col sm:flex-row">
             <motion.p
-              className="font-semibold flex items-center gap-1 sm:gap-2 text-[22px] sm:text-[28px]"
+              className="font-semibold flex items-center gap-0.5 sm:gap-2 text-[21px] sm:text-[28px]"
               variants={itemVariants}
             >
-              Ubaidur <RiVerifiedBadgeFill size={20} /> —{" "}
+              Ubaidur <RiVerifiedBadgeFill size={20} />{" "}
+              <span className="hidden sm:block">— </span>
             </motion.p>
-            <motion.span variants={itemVariants} className="text-text-color text-lg sm:text-xl">
+            <motion.span
+              variants={itemVariants}
+              className="text-text-color text-lg sm:text-xl"
+            >
               A Full Stack Developer{" "}
             </motion.span>
           </div>
@@ -131,9 +136,8 @@ const Hero = () => {
         <motion.div variants={itemVariants}>
           <SocialIcons />
         </motion.div>
-
-        <motion.div
-          className="mt-6 flex items-center gap-3 sm:gap-6"
+         <motion.div
+          className="mt-6 flex items-center  gap-2 sm:gap-6"
           variants={itemVariants}
         >
           <Link href={"/resume"} className="btn-design">
@@ -142,7 +146,7 @@ const Hero = () => {
           </Link>
           <Link
             href={"/contact"}
-            className=" px-5 flex items-center gap-2 py-2 rounded-md bg-black dark:bg-white dark:text-black text-white text-sm font-medium"
+            className=" px-3 sm:px-7 flex items-center gap-2 py-2 rounded-md bg-black dark:bg-white dark:text-black text-white text-sm font-medium"
           >
             <Send size={18} /> Get in touch
           </Link>

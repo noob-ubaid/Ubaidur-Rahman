@@ -43,7 +43,7 @@ export default function RootLayout({
           <Navbar />
           <ChatBot />
           <KeyboardNavigation />
-          <main className="grow max-w-[720px] w-full mt-14 mx-auto px-4 sm:px-0">
+          <main className="grow max-w-[720px] w-full mt-14 mx-auto px-3 sm:px-0">
             {children}
           </main>
           <Toaster/>
