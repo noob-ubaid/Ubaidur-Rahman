@@ -23,7 +23,7 @@ const shortCuts = [
         icon: <IoHomeOutline size={20} color="gray" />,
         title: "Go to Home",
         description: "go to home page",
-        key: "H",
+        key: "H", 
       },
       {
         icon: <IoBookOutline size={20} color="gray" />,

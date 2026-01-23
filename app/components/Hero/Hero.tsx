@@ -86,15 +86,17 @@ const Hero = () => {
               alt="Logo"
             />
           </motion.div>
-          <motion.p
-            className="font-semibold flex items-center gap-1 sm:gap-2 text-[22px] sm:text-[28px]"
-            variants={itemVariants}
-          >
-            Ubaidur <RiVerifiedBadgeFill size={20} /> —{" "}
-            <span className="text-text-color text-lg sm:text-xl">
+          <div className="flex items-start sm:items-center gap-0 sm:gap-2 flex-col sm:flex-row">
+            <motion.p
+              className="font-semibold flex items-center gap-1 sm:gap-2 text-[22px] sm:text-[28px]"
+              variants={itemVariants}
+            >
+              Ubaidur <RiVerifiedBadgeFill size={20} /> —{" "}
+            </motion.p>
+            <motion.span variants={itemVariants} className="text-text-color text-lg sm:text-xl">
               A Full Stack Developer{" "}
-            </span>
-          </motion.p>
+            </motion.span>
+          </div>
         </div>
 
         <motion.p
