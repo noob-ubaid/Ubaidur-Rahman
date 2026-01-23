@@ -105,7 +105,7 @@ const Hero = () => {
               className="font-semibold flex items-center gap-1 sm:gap-2 text-[22px] sm:text-[28px]"
               variants={itemVariants}
             >
-              Ubaidur <RiVerifiedBadgeFill size={20} /> —
+              <span>Ubaidur</span> <RiVerifiedBadgeFill size={22} className="text-blue-600"/> —
             </motion.p>
             <AnimatePresence mode="wait">
               <motion.span
@@ -113,7 +113,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
+                transition={{ duration: 0.40, ease: "easeInOut" }}
                 className="text-text-color text-lg sm:text-xl inline-block"
               >
                 {roles[index]}

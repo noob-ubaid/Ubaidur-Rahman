@@ -32,28 +32,28 @@ const KeyboardModal = ({
           title: "Go to Home",
           description: "go to home page",
           key: "H",
-          action: router.push("/"),
+          // action: router.push("/"),
         },
         {
           icon: <IoBookOutline size={20} color="gray" />,
           title: "Go to Blogs",
           description: "browse all blogs",
           key: "B",
-          action: router.push("/blogs"),
+          // action: router.push("/blogs"),
         },
         {
           icon: <IoIosCall size={20} color="gray" />,
           title: "Go to contact",
           description: "View Contact Info",
           key: "C",
-          action: router.push("/contact"),
+          // action: router.push("/contact"),
         },
         {
           icon: <LuFileText size={20} color="gray" />,
           title: "Go to resume",
           description: "Check out my resume",
           key: "R",
-          action: router.push("/resume"),
+          // action: router.push("/resume"),
         },
       ],
     },
@@ -137,11 +137,11 @@ const KeyboardModal = ({
       exit={{ opacity: 0 }}
       transition={{ duration: 0.15 }}
       onClick={() => setShowModal(false)}
-      className="flex items-center fixed inset-0 z-50 backdrop-blur-[2px] justify-center bg-black/40"
+      className="flex items-center fixed inset-0 z-50 backdrop-blur-[2px] justify-center  bg-black/40"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-xl bg-gray-50 dark:bg-neutral-800 px-3 py-1.5 rounded-md"
+        className="w-xl bg-gray-50 dark:bg-neutral-900 px-3 py-1.5 rounded-md"
       >
         <div className="flex items-center gap-1 border-b pb-1">
           <IoIosSearch size={20} color="gray" />
