@@ -126,16 +126,16 @@ const KeyboardModal = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
- const filteredShortcuts = shortCuts
-  .map((group) => ({
-    ...group,
-    allShortCut: group.allShortCut.filter((item) =>
-      item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.key.toLowerCase().includes(searchTerm.toLowerCase())
-    ),
-  }))
-  .filter((group) => group.allShortCut.length > 0);
+  const filteredShortcuts = shortCuts
+    .map((group) => ({
+      ...group,
+      allShortCut: group.allShortCut.filter(
+        (item) =>
+          item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.description.toLowerCase().includes(searchTerm.toLowerCase()),
+      ),
+    }))
+    .filter((group) => group.allShortCut.length > 0);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
