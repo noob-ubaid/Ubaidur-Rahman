@@ -1,7 +1,4 @@
-import {
-  WorkExperience,
-} from "@/components/ui/projects-design";
-import React from "react";
+import { WorkExperience } from "@/components/ui/projects-design";
 import Title from "../shared/Title";
 export interface ProjectStatus {
   id: number;
@@ -15,7 +12,7 @@ export interface Project {
   name: string;
   teamProject: boolean;
   description: string;
-  projectType : string;
+  projectType: string;
   features: string[];
   shortDescription: string;
   techStack: string[];
@@ -49,7 +46,7 @@ export const allProjects: Project[] = [
       "Users can share job posts, and the shared recipients can apply for those jobs.",
       "Users can save job posts and apply later when ready.",
     ],
-    projectType:'Full Stack',
+    projectType: "Full Stack",
     techStack: [
       "React JS",
       "Tailwind CSS",
@@ -108,7 +105,7 @@ export const allProjects: Project[] = [
     img: "/devdit.png",
     name: "Devdit",
     teamProject: false,
-    projectType:'Full Stack',
+    projectType: "Full Stack",
     shortDescription:
       "Interactive developer forum app with discussions, voting, dashboards, and analytics.",
     description:
@@ -187,7 +184,7 @@ export const allProjects: Project[] = [
     img: "/jobent.png",
     name: "Jovent",
     teamProject: false,
-    projectType:'Full Stack',
+    projectType: "Full Stack",
     shortDescription:
       "Community platform for discovering, creating and join local social development events.",
     description:
@@ -258,7 +255,7 @@ export const allProjects: Project[] = [
     img: "/recipe.png",
     name: "Recipe Book",
     teamProject: false,
-    projectType:'Full Stack',
+    projectType: "Full Stack",
     shortDescription:
       "Food platform for discovering, sharing, and managing recipes with community features.",
     description:
