@@ -1,20 +1,14 @@
+"use client";
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { IoIosSearch } from "react-icons/io";
-import { IoHomeOutline } from "react-icons/io5";
-import { IoBookOutline } from "react-icons/io5";
-import { IoIosCall } from "react-icons/io";
+import { IoHomeOutline, IoBookOutline, IoSunnyOutline } from "react-icons/io5";
+import { IoIosCall, IoIosArrowRoundUp } from "react-icons/io";
 import { LuFileText } from "react-icons/lu";
 import { FiMessageCircle } from "react-icons/fi";
-import { IoSunnyOutline } from "react-icons/io5";
-import { IoIosArrowRoundUp } from "react-icons/io";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaSquareFacebook } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaSquareFacebook, FaXTwitter } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
-import { useRouter } from "next/navigation";
 
 const shortCuts = [
   {
@@ -26,28 +20,24 @@ const shortCuts = [
         title: "Go to Home",
         description: "go to home page",
         key: "H",
-        // action: router.push("/"),
       },
       {
         icon: <IoBookOutline size={20} color="gray" />,
         title: "Go to Blogs",
         description: "browse all blogs",
         key: "B",
-        // action: router.push("/blogs"),
       },
       {
         icon: <IoIosCall size={20} color="gray" />,
         title: "Go to contact",
         description: "View Contact Info",
         key: "C",
-        // action: router.push("/contact"),
       },
       {
         icon: <LuFileText size={20} color="gray" />,
         title: "Go to resume",
         description: "Check out my resume",
         key: "R",
-        // action: router.push("/resume"),
       },
     ],
   },
@@ -119,12 +109,18 @@ const shortCuts = [
   },
 ];
 
+const rowVariants = {
+  hidden: { opacity: 0, y: 6, scale: 0.98 },
+  visible: { opacity: 1, y: 0, scale: 1 },
+  exit: { opacity: 0, y: -6, scale: 0.98 },
+};
+
 const KeyboardModal = ({
   setShowModal,
 }: {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const filteredShortcuts = shortCuts
     .map((group) => ({
@@ -137,12 +133,15 @@ const KeyboardModal = ({
     }))
     .filter((group) => group.allShortCut.length > 0);
 
+  const hasResults = filteredShortcuts.length > 0;
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -150,51 +149,98 @@ const KeyboardModal = ({
       exit={{ opacity: 0 }}
       transition={{ duration: 0.15 }}
       onClick={() => setShowModal(false)}
-      className="flex items-center fixed inset-0 z-50 backdrop-blur-[2px] justify-center  bg-black/40"
+      className="flex items-center fixed inset-0 z-50 backdrop-blur-[2px] justify-center bg-black/40"
     >
-      <div
+      <motion.div
+        layout="position"
         onClick={(e) => e.stopPropagation()}
-        className="w-xl bg-gray-50 dark:bg-neutral-900 px-3 py-1.5 rounded-md"
+        className="w-xl bg-gray-50 dark:bg-neutral-900 px-3 py-1.5 rounded-md overflow-hidden"
       >
+        {/* Search */}
         <div className="flex items-center gap-1 border-b pb-1">
           <IoIosSearch size={20} color="gray" />
           <input
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full py-0.5 outline-none border-none"
+            className="w-full py-0.5 outline-none border-none bg-transparent"
             placeholder="Type a command or search..."
           />
         </div>
-        <div className="h-96 overflow-y-scroll">
-          {filteredShortcuts.map((short) => (
-            <div key={short.id}>
-              <p className=" font-semibold mt-3 text-[15px] ">{short.name}</p>
-              <div className="space-y-2.5 mt-1">
-                {short.allShortCut.map((key, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center duration-200 hover:bg-gray-200/60 dark:hover:bg-neutral-700 p-1.5 rounded-md justify-between"
-                  >
-                    <div className="flex items-center gap-3">
-                      {key.icon}
-                      <div>
-                        <p className="text-sm font-medium ">{key.title}</p>
-                        <p className="text-[13px] text-text-color">
-                          {key.description}
-                        </p>
+
+        {/* Results */}
+        <div className="h-96 overflow-hidden mt-2 relative">
+          <AnimatePresence mode="wait">
+            {!hasResults ? (
+              <motion.div
+                key="empty"
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.2 }}
+                className="absolute inset-0 flex items-center justify-center  text-text-color font-medium"
+              >
+                No results found
+              </motion.div>
+            ) : (
+              <motion.div
+                key="results"
+                layout="position"
+                className="absolute inset-0 overflow-y-auto pr-1 space-y-3"
+              >
+                <AnimatePresence mode="popLayout">
+                  {filteredShortcuts.map((short) => (
+                    <motion.div
+                      layout="position"
+                      key={short.id}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      <motion.p
+                        layout="position"
+                        className="font-semibold text-[15px] mb-1"
+                      >
+                        {short.name}
+                      </motion.p>
+
+                      <div className="space-y-2.5">
+                        <AnimatePresence mode="popLayout">
+                          {short.allShortCut.map((item) => (
+                            <motion.div
+                              layout="position"
+                              key={item.title}
+                              variants={rowVariants}
+                              initial="hidden"
+                              animate="visible"
+                              exit="exit"
+                              transition={{ duration: 0.15, ease: "easeOut" }}
+                              className="flex items-center hover:bg-gray-200/60 dark:hover:bg-neutral-700 p-1.5 rounded-md justify-between"
+                            >
+                              <div className="flex items-center gap-3">
+                                {item.icon}
+                                <div>
+                                  <p className="text-sm font-medium">
+                                    {item.title}
+                                  </p>
+                                  <p className="text-[13px] text-text-color">
+                                    {item.description}
+                                  </p>
+                                </div>
+                              </div>
+                              <span className="border py-1 bg-gray-100 dark:bg-neutral-700 px-1.5 text-xs rounded-[3px]">
+                                {item.key}
+                              </span>
+                            </motion.div>
+                          ))}
+                        </AnimatePresence>
                       </div>
-                    </div>
-                    <div>
-                      <span className="border py-1 bg-gray-100 dark:bg-neutral-700 px-1.5 text-xs rounded-[3px]">
-                        {key.key}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 };
