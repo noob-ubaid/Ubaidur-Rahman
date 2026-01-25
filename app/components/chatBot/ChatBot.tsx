@@ -5,27 +5,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { HandIcon, Send } from "lucide-react";
-import { useChat } from "@ai-sdk/react";
+import { Send } from "lucide-react";
+// import { useChat } from "@ai-sdk/react";
 const ChatBot = () => {
   const [showChat, setShowChat] = useState(false);
   const time = new Date().toLocaleTimeString();
-  const {
-    messages,
-    input,
-    handleInputChange,
-    handleSubmit,
-    isLoading,
-    stop,
-    reload,
-    error,
-  } = useChat({ api: "/api/gemini" });
+  // const {
+  //   messages,
+  //   input,
+  //   handleInputChange,
+  //   handleSubmit,
+  //   isLoading,
+  //   stop,
+  //   reload,
+  //   error,
+  // } = useChat();
 
-  const quickQuestions = [
-    "What tech stack skills do you have?",
-    "What projects have you worked on recently?",
-    "How can I contact you?",
-  ];
+  // const quickQuestions = [
+  //   "What tech stack skills do you have?",
+  //   "What projects have you worked on recently?",
+  //   "How can I contact you?",
+  // ];
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
@@ -91,7 +91,7 @@ const ChatBot = () => {
                 </p>
                 <p className="text-right mt-2 text-text-color">{time}</p>
               </div>
-              {messages.length === 0 && (
+              {/* {messages.length === 0 && (
                 <div>
                   <p className="mt-3 text-text-color font-medium mb-2">
                     Quick questions
@@ -99,6 +99,9 @@ const ChatBot = () => {
                   <div className="flex sm:items-center gap-2 flex-wrap flex-col sm:flex-row">
                     {quickQuestions.map((question, idx) => (
                       <div
+                        onClick={() =>
+                          handleInputChange({ target: { value: question } })
+                        }
                         className="w-fit text-sm px-1.5 py-1 border cursor-pointer border-neutral-300 dark:border-neutral-300 rounded-md "
                         key={idx}
                       >
@@ -108,22 +111,33 @@ const ChatBot = () => {
                   </div>
                 </div>
               )}
+              {
+                isLoading && (
+                  <p className="text-sm font-medium text-text-color">Loading...</p>
+                )
+              }
+              {
+                error && (
+                  <p className="text-sm font-medium text-text-color">an error occured</p>
+                )
+              } */}
             </div>
 
             {/* Input */}
             <div>
-              <form className="p-3 border-t flex gap-2.5 border-gray-700 dark:border-gray-300">
+              <form  className="p-3 border-t flex gap-2.5 border-gray-700 dark:border-gray-300">
                 <Input
                   type="text"
                   required
-                  value={input}
-                  onChange={handleInputChange}
+                  // value={input}
+                  // onChange={handleInputChange}
                   className="border border-gray-700 dark:border-gray-300 py-5"
                   placeholder="Ask me about my skills or projects..."
                   id="name"
                 />
                 <Button
-                  disabled={isLoading}
+                  // disabled={isLoading}
+                  type="submit"
                   className="p-5 bg-second-dark/80 dark:bg-gray-200/70 dark:hover:text-black dark:hover:bg-gray-200 hover:text-white hover:bg-second-dark duration-200 rounded-md"
                 >
                   <Send size={19} />
