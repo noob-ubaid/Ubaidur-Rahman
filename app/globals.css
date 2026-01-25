@@ -206,6 +206,10 @@ code[data-line-numbers-max-digits="4"] > [data-line]::before {
   width: 2.25rem;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
