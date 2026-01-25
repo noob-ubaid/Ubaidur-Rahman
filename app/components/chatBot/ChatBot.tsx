@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Send } from "lucide-react";
+import { HandIcon, Send } from "lucide-react";
 import { useChat } from "@ai-sdk/react";
 const ChatBot = () => {
   const [showChat, setShowChat] = useState(false);
@@ -20,6 +20,12 @@ const ChatBot = () => {
     reload,
     error,
   } = useChat({ api: "/api/gemini" });
+
+  const quickQuestions = [
+    "What tech stack skills do you have?",
+    "What projects have you worked on recently?",
+    "How can I contact you?",
+  ];
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
@@ -85,6 +91,11 @@ const ChatBot = () => {
                 </p>
                 <p className="text-right mt-2 text-text-color">{time}</p>
               </div>
+              {messages.length === 0 && (
+                <div>
+                  <p>Quick questions</p>
+                </div>
+              )}
             </div>
 
             {/* Input */}
@@ -93,11 +104,16 @@ const ChatBot = () => {
                 <Input
                   type="text"
                   required
+                  value={input}
+                  onChange={handleInputChange}
                   className="border border-gray-700 dark:border-gray-300 py-5"
                   placeholder="Ask me about my skills or projects..."
                   id="name"
                 />
-                <Button className="p-5 bg-second-dark/80 dark:bg-gray-200/70 dark:hover:text-black dark:hover:bg-gray-200 hover:text-white hover:bg-second-dark duration-200 rounded-md">
+                <Button
+                  disabled={isLoading}
+                  className="p-5 bg-second-dark/80 dark:bg-gray-200/70 dark:hover:text-black dark:hover:bg-gray-200 hover:text-white hover:bg-second-dark duration-200 rounded-md"
+                >
                   <Send size={19} />
                 </Button>
               </form>
