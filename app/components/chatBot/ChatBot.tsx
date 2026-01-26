@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
 const ChatBot = () => {
   const [showChat, setShowChat] = useState(false);
-  const time = new Date().toLocaleTimeString();
+  const time = new Date().toLocaleTimeString([],{hour:"2-digit", minute:"2-digit"});
 
   // const quickQuestions = [
   //   "What tech stack skills do you have?",
