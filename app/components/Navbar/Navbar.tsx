@@ -105,7 +105,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={() => handleKeyboardModal()}
-              className="border-3 py-[7px] px-1 rounded-md hidden lg:flex group text-xs items-center text-text-color gap-1"
+              className="border-3 py-[7px] px-2 rounded-md hidden lg:flex group text-xs items-center text-text-color gap-1"
             >
               <IoIosSearch size={19} />
 
