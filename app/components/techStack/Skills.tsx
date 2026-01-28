@@ -8,7 +8,6 @@ import React from "@/components/svgs/React";
 import Expressjs from "@/components/svgs/Express";
 import MongoDB from "@/components/svgs/MongoDB";
 import PostgreSQL from "@/components/svgs/PostgreSql";
-import Nodejs from "@/components/svgs/Node";
 import Prisma from "@/components/svgs/Prisma";
 import TanStack from "@/components/svgs/TanstackQuery";
 import Redux from "@/components/svgs/Redux";
