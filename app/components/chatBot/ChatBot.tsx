@@ -384,7 +384,7 @@ export default function Chat() {
               </ScrollArea>
 
               {/* Input */}
-              <CardContent className="border-t p-4 flex-shrink-0">
+              <CardContent className="border-t pt-4 flex-shrink-0">
                 <form
                   onSubmit={handleSubmit}
                   className="flex items-center gap-2"
