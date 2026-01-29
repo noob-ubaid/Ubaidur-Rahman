@@ -15,17 +15,17 @@
 //   //   "What projects have you worked on recently?",
 //   //   "How can I contact you?",
 //   // ];
-  // useEffect(() => {
-  //   const handleKeyDown = (e: KeyboardEvent) => {
-  //     const target = e.target as HTMLElement;
-  //     if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") return;
-  //     if (e.key.toLowerCase() === "a") {
-  //       setShowChat(!showChat);
-  //     }
-  //   };
-  //   window.addEventListener("keydown", handleKeyDown);
-  //   return () => window.removeEventListener("keydown", handleKeyDown);
-  // }, [showChat, setShowChat]);
+// useEffect(() => {
+//   const handleKeyDown = (e: KeyboardEvent) => {
+//     const target = e.target as HTMLElement;
+//     if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") return;
+//     if (e.key.toLowerCase() === "a") {
+//       setShowChat(!showChat);
+//     }
+//   };
+//   window.addEventListener("keydown", handleKeyDown);
+//   return () => window.removeEventListener("keydown", handleKeyDown);
+// }, [showChat, setShowChat]);
 
 //   return (
 //     <>
@@ -51,13 +51,13 @@
 //             <div className="flex items-center justify-between p-4 border-b border-gray-700 dark:border-gray-300">
 //               <div className="flex items-center gap-4">
 //                 <div>
-//                   <Image
-//                     width={48}
-//                     height={48}
-//                     className="object-cover border-2 border-gray-300 bg-center rounded-full"
-//                     src={"/logo.png"}
-//                     alt="Logo"
-//                   />
+// <Image
+//   width={48}
+//   height={48}
+//   className="object-cover border-2 border-gray-300 bg-center rounded-full"
+//   src={"/logo.png"}
+//   alt="Logo"
+// />
 //                 </div>
 //                 <div>
 //                   <p className="font-medium">Ubaidur's Assistant</p>
@@ -109,11 +109,6 @@
 
 // export default ChatBot;
 
-
-
-
-
-
 "use client";
 
 import { useChat } from "@ai-sdk/react";
@@ -131,6 +126,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function Chat() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
@@ -156,7 +152,7 @@ export default function Chat() {
   });
 
   const isLoading = status === "streaming" || status === "submitted";
-    useEffect(() => {
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") return;
@@ -234,190 +230,209 @@ export default function Chat() {
       )}
 
       {/* Chat Window */}
-      {open && (
-        <div className="fixed right-3 bottom-3 sm:right-6 sm:bottom-6 z-50 w-[95vw] max-w-md h-[75vh] max-h-[640px]">
-          <Card className="h-full flex flex-col shadow-2xl overflow-hidden">
-            {/* Header */}
-            <CardHeader className="border-b flex-shrink-0">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <Avatar className="h-9 w-9">
-                    <AvatarFallback className="bg-primary text-primary-foreground">
-                      <Bot className="h-5 w-5" />
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <CardTitle className="text-base">
-                      Ubaidur’s AI Assistant
-                    </CardTitle>
-                    <CardDescription className="text-xs">
-                      Online
-                    </CardDescription>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.15 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            className="fixed right-3 bottom-3 sm:right-6 sm:bottom-6 z-50 w-[95vw] max-w-md h-[75vh] max-h-[640px]"
+          >
+            <Card className="h-full flex flex-col shadow-2xl overflow-hidden">
+              {/* Header */}
+              <CardHeader className="border-b ">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <Avatar className="h-9 w-9">
+                      <Image
+                        width={48}
+                        height={48}
+                        className="object-cover border-2 border-gray-300 bg-center rounded-full"
+                        src={"/logo.png"}
+                        alt="Logo"
+                      />
+                    </Avatar>
+                    <div>
+                      <CardTitle className="text-base">
+                        Ubaidur’s AI Assistant
+                      </CardTitle>
+                      <CardDescription className="text-sm">
+                        <p className="flex items-center gap-2">
+                          {" "}
+                          <div className="size-2 rounded-full bg-green-500"></div>{" "}
+                          Online
+                        </p>
+                      </CardDescription>
+                    </div>
                   </div>
+
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setOpen(false)}
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
                 </div>
+              </CardHeader>
 
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setOpen(false)}
-                >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-            </CardHeader>
-
-            {/* Messages */}
-            <ScrollArea ref={scrollAreaRef} className="flex-1 min-h-0">
-              <div className="p-4 space-y-4 pb-4">
-                {messages.map((message) => {
-                  const isUser = (message.role as string) === "user";
-                  return (
-                    <div
-                      key={message.id}
-                      className={cn(
-                        "flex",
-                        isUser ? "justify-end" : "justify-start",
-                      )}
-                    >
+              {/* Messages */}
+              <ScrollArea ref={scrollAreaRef} className="flex-1 min-h-0">
+                <div className="p-4 space-y-4 pb-4">
+                  {messages.map((message) => {
+                    const isUser = (message.role as string) === "user";
+                    return (
                       <div
+                        key={message.id}
                         className={cn(
-                          "flex items-start gap-3 max-w-[85%] min-w-0",
-                          isUser && "flex-row-reverse",
+                          "flex",
+                          isUser ? "justify-end" : "justify-start",
                         )}
                       >
-                        <Avatar className="h-8 w-8 shrink-0">
-                          <AvatarFallback
-                            className={cn(
-                              isUser
-                                ? "bg-primary text-primary-foreground"
-                                : "bg-muted",
-                            )}
-                          >
-                            {isUser ? (
-                              <User className="h-4 w-4" />
-                            ) : (
-                              <Bot className="h-4 w-4" />
-                            )}
-                          </AvatarFallback>
-                        </Avatar>
+                        <div
+                          className={cn(
+                            "flex items-start gap-3 max-w-[85%] min-w-0",
+                            isUser && "flex-row-reverse",
+                          )}
+                        >
+                          <Avatar className="h-8 w-8 shrink-0">
+                            <AvatarFallback
+                              className={cn(
+                                isUser
+                                  ? "bg-primary text-primary-foreground"
+                                  : "bg-muted",
+                              )}
+                            >
+                              {isUser ? (
+                                <User className="h-4 w-4" />
+                              ) : (
+                                <Image
+                                  width={48}
+                                  height={48}
+                                  className="object-cover border-2 border-gray-300 bg-center rounded-full"
+                                  src={"/logo.png"}
+                                  alt="Logo"
+                                />
+                              )}
+                            </AvatarFallback>
+                          </Avatar>
 
-                        <div className="space-y-1 min-w-0 flex-1">
-                          <div
-                            className={cn(
-                              "rounded-lg px-4 py-2.5 text-sm max-w-full",
-                              isUser
-                                ? "bg-primary text-primary-foreground"
-                                : "bg-muted",
-                            )}
-                          >
-                            <div className="whitespace-pre-wrap break-words leading-relaxed overflow-wrap-anywhere">
-                              {message.parts?.map((part, index) => {
-                                if (part.type === "text") {
-                                  return <p key={index}>{part.text}</p>;
-                                }
-                                return null;
-                              })}
+                          <div className="space-y-1 min-w-0 flex-1">
+                            <div
+                              className={cn(
+                                "rounded-lg px-4 py-2.5 text-sm max-w-full",
+                                isUser
+                                  ? "bg-primary text-primary-foreground"
+                                  : "bg-muted",
+                              )}
+                            >
+                              <div className="whitespace-pre-wrap break-words leading-relaxed overflow-wrap-anywhere">
+                                {message.parts?.map((part, index) => {
+                                  if (part.type === "text") {
+                                    return <p key={index}>{part.text}</p>;
+                                  }
+                                  return null;
+                                })}
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
 
-                {/* Loading */}
-                {isLoading && (
-                  <div className="flex justify-start">
-                    <div className="flex items-center gap-3 max-w-[85%]">
-                      <Avatar className="h-8 w-8">
-                        <AvatarFallback className="bg-muted">
-                          <Bot className="h-4 w-4" />
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="bg-muted rounded-lg px-4 py-2.5">
-                        <div className="flex items-center gap-2">
-                          <Loader2 className="h-3 w-3 animate-spin" />
-                          <span className="text-sm text-muted-foreground">
-                            Thinking...
-                          </span>
+                  {/* Loading */}
+                  {isLoading && (
+                    <div className="flex justify-start">
+                      <div className="flex items-center gap-3 max-w-[85%]">
+                        <Avatar className="h-8 w-8">
+                          <Image
+                            width={48}
+                            height={48}
+                            className="object-cover border-2 border-gray-300 bg-center rounded-full"
+                            src={"/logo.png"}
+                            alt="Logo"
+                          />
+                        </Avatar>
+                        <div className="bg-muted rounded-lg px-4 py-2.5">
+                          <div className="flex items-center gap-2">
+                            <Loader2 className="h-3 w-3 animate-spin" />
+                            <span className="text-sm text-muted-foreground">
+                              Thinking...
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                )}
-
-                {/* Error */}
-                {error && (
-                  <div className="flex justify-center px-4">
-                    <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-3 max-w-md">
-                      <div className="flex items-start gap-2">
-                        <AlertCircle className="h-4 w-4 text-destructive mt-0.5" />
-                        <div className="space-y-1">
-                          <p className="text-sm text-destructive">
-                            {error.message ||
-                              "Something went wrong. Please try again."}
-                          </p>
-                          <Button
-                            onClick={() => regenerate()}
-                            variant="ghost"
-                            size="sm"
-                            className="h-7 px-2 text-xs"
-                          >
-                            Retry last message
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </ScrollArea>
-
-            {/* Input */}
-            <CardContent className="border-t p-4 flex-shrink-0">
-              <form onSubmit={handleSubmit} className="flex gap-2">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={input}
-                  onChange={handleInputChange}
-                  placeholder="Type your message..."
-                  disabled={isLoading}
-                  className={cn(
-                    "flex-1 px-3 py-2 text-sm rounded-md border border-input bg-background",
-                    "placeholder:text-muted-foreground",
-                    "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-                    "disabled:cursor-not-allowed disabled:opacity-50",
                   )}
-                />
 
-                {isLoading ? (
-                  <Button
-                    type="button"
-                    onClick={stop}
-                    variant="destructive"
-                    size="sm"
-                  >
-                    Stop
-                  </Button>
-                ) : (
-                  <Button type="submit" disabled={!input.trim()} size="sm">
-                    <Send className="h-4 w-4" />
-                    <span className="ml-2 hidden sm:inline">Send</span>
-                  </Button>
-                )}
-              </form>
-
-              {input.length > 0 && (
-                <div className="mt-2 text-xs text-muted-foreground text-right">
-                  {input.length} / 4000
+                  {/* Error */}
+                  {error && (
+                    <div className="flex justify-center px-4">
+                      <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-3 max-w-md">
+                        <div className="flex items-start gap-2">
+                          <AlertCircle className="h-4 w-4 text-destructive mt-0.5" />
+                          <div className="space-y-1">
+                            <p className="text-sm text-destructive">
+                              {error.message ||
+                                "Something went wrong. Please try again."}
+                            </p>
+                            <Button
+                              onClick={() => regenerate()}
+                              variant="ghost"
+                              size="sm"
+                              className="h-7 px-2 text-xs"
+                            >
+                              Retry last message
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              )}
-            </CardContent>
-          </Card>
-        </div>
-      )}
+              </ScrollArea>
+
+              {/* Input */}
+              <CardContent className="border-t p-4 flex-shrink-0">
+                <form onSubmit={handleSubmit} className="flex gap-2">
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={input}
+                    onChange={handleInputChange}
+                    placeholder="Type your message..."
+                    disabled={isLoading}
+                    className={cn(
+                      "flex-1 px-3 py-2 text-sm rounded-md border border-input bg-background",
+                      "placeholder:text-muted-foreground",
+                      "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+                      "disabled:cursor-not-allowed disabled:opacity-50",
+                    )}
+                  />
+
+                  {isLoading ? (
+                    <Button
+                      type="button"
+                      onClick={stop}
+                      variant="destructive"
+                      size="sm"
+                    >
+                      Stop
+                    </Button>
+                  ) : (
+                    <Button type="submit" disabled={!input.trim()} size="sm">
+                      <Send className="h-4 w-4" />
+                      <span className="ml-2 hidden sm:inline">Send</span>
+                    </Button>
+                  )}
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
-
