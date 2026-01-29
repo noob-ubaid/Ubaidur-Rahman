@@ -10,11 +10,6 @@
 //   const [showChat, setShowChat] = useState(false);
 //   const time = new Date().toLocaleTimeString([],{hour:"2-digit", minute:"2-digit"});
 
-//   // const quickQuestions = [
-//   //   "What tech stack skills do you have?",
-//   //   "What projects have you worked on recently?",
-//   //   "How can I contact you?",
-//   // ];
 // useEffect(() => {
 //   const handleKeyDown = (e: KeyboardEvent) => {
 //     const target = e.target as HTMLElement;
@@ -51,13 +46,7 @@
 //             <div className="flex items-center justify-between p-4 border-b border-gray-700 dark:border-gray-300">
 //               <div className="flex items-center gap-4">
 //                 <div>
-// <Image
-//   width={48}
-//   height={48}
-//   className="object-cover border-2 border-gray-300 bg-center rounded-full"
-//   src={"/logo.png"}
-//   alt="Logo"
-// />
+
 //                 </div>
 //                 <div>
 //                   <p className="font-medium">Ubaidur's Assistant</p>
@@ -127,6 +116,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { Input } from "@/components/ui/input";
 
 export default function Chat() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
@@ -220,14 +210,13 @@ export default function Chat() {
   return (
     <>
       {/* Floating Chat Button */}
-      {!open && (
-        <button
-          onClick={() => setOpen(true)}
-          className="fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-50 h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition"
-        >
-          <Bot className="h-6 w-6" />
-        </button>
-      )}
+
+      <button
+        onClick={() => setOpen(!open)}
+        className="fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-50 h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition"
+      >
+        <Bot className="h-6 w-6" />
+      </button>
 
       {/* Chat Window */}
       <AnimatePresence>
@@ -237,9 +226,9 @@ export default function Chat() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.15 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="fixed right-3 bottom-3 sm:right-6 sm:bottom-6 z-50 w-[95vw] max-w-md h-[75vh] max-h-[640px]"
+            className="fixed inset-x-0 bottom-20 mx-auto z-50 w-[90vw] h-[70vh] max-w-[800px] sm:right-6 sm:bottom-28 sm:inset-x-auto sm:mx-0 sm:w-[570px] sm:h-[580px]  rounded-md shadow-2xl flex flex-col"
           >
-            <Card className="h-full flex flex-col shadow-2xl overflow-hidden">
+            <Card className="h-full flex flex-col overflow-hidden">
               {/* Header */}
               <CardHeader className="border-b ">
                 <div className="flex items-center justify-between">
@@ -258,11 +247,11 @@ export default function Chat() {
                         Ubaidur’s AI Assistant
                       </CardTitle>
                       <CardDescription className="text-sm">
-                        <p className="flex items-center gap-2">
+                        <div className="flex items-center gap-2">
                           {" "}
                           <div className="size-2 rounded-full bg-green-500"></div>{" "}
                           Online
-                        </p>
+                        </div>
                       </CardDescription>
                     </div>
                   </div>
@@ -396,20 +385,18 @@ export default function Chat() {
 
               {/* Input */}
               <CardContent className="border-t p-4 flex-shrink-0">
-                <form onSubmit={handleSubmit} className="flex gap-2">
-                  <input
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex items-center gap-2"
+                >
+                  <Input
                     ref={inputRef}
                     type="text"
                     value={input}
                     onChange={handleInputChange}
                     placeholder="Type your message..."
                     disabled={isLoading}
-                    className={cn(
-                      "flex-1 px-3 py-2 text-sm rounded-md border border-input bg-background",
-                      "placeholder:text-muted-foreground",
-                      "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-                      "disabled:cursor-not-allowed disabled:opacity-50",
-                    )}
+                    className="border border-gray-700 dark:border-gray-300 py-4.5"
                   />
 
                   {isLoading ? (
@@ -422,9 +409,13 @@ export default function Chat() {
                       Stop
                     </Button>
                   ) : (
-                    <Button type="submit" disabled={!input.trim()} size="sm">
-                      <Send className="h-4 w-4" />
-                      <span className="ml-2 hidden sm:inline">Send</span>
+                    <Button
+                      className="p-5  rounded-md"
+                      type="submit"
+                      disabled={!input.trim()}
+                      size="sm"
+                    >
+                      <Send className="h-5 w-5" />
                     </Button>
                   )}
                 </form>
