@@ -1,7 +1,9 @@
 export const knowledgeBase = `
-Name: Ubaidur Rahman
+Name: Md. Ubaidur Rahman
 Location: Bangladesh
-Role: MERN Stack Developer
+Role: FULL Stack Developer
+education: currently studying in Inter Second Year(HSC) in science background
+Age: 18
 
 Skills:
 - JavaScript, TypeScript
@@ -17,11 +19,13 @@ Projects:
 - Portfolio Website – Personal portfolio with AI chatbot and real-time features.
 
 Goals:
-- Become a professional MERN stack developer
+- Become a professional senior full stack developer
 - Build production-ready full-stack applications
 
 Contact:
 - Email: ubaidurrahman661@gmail.com
+- phone: "+880 19953 22033",
+- whatsapp: "https://wa.me/8801995322033",
 - GitHub: https://github.com/ubaidurxdev
 - LinkedIn: https://www.linkedin.com/in/ubaidur-rahman01/
 `;

@@ -38,14 +38,15 @@ export async function POST(req: Request) {
     const google = createGoogleGenerativeAI({ apiKey });
 
     const result = streamText({
-      model: google("gemini-2.5-flash"),
+      model: google("gemini-2.5-flash-lite"),
+      // model: google("gemini-2.5-flash"),
       system: `
 You are Ubaidur Rahman's AI portfolio assistant.
 
 RULES:
 - Answer ONLY using the information below.
 - If the answer is not present, say: "I don't have that information."
-- Be friendly, short, and professional.
+- Be friendly, long, and professional.
 
 DATA:
 ${knowledgeBase}
