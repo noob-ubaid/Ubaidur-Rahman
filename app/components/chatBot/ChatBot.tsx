@@ -124,22 +124,19 @@ export default function Chat() {
   const [input, setInput] = useState("");
   const [open, setOpen] = useState(false);
 
-  const {
-    messages,
-    sendMessage,
-    status,
-    error,
-    regenerate,
-    stop,
-    setMessages,
-  } = useChat({
-    onError: (error) => {
-      console.error("Chat error:", error);
-    },
-    onFinish: () => {
-      inputRef.current?.focus();
-    },
-  });
+const {
+  messages,
+  sendMessage,
+  status,
+  error,
+  regenerate,
+  stop,
+  setMessages,
+} = useChat({
+  api: "/api/chat", // make sure this is correct
+  onError: (err) => console.error("Chat error:", err),
+  onFinish: () => inputRef.current?.focus(),
+});
 
   const isLoading = status === "streaming" || status === "submitted";
   useEffect(() => {
