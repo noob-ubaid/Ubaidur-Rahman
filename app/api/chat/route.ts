@@ -47,6 +47,8 @@ RULES:
 - Answer ONLY using the information below.
 - If the answer is not present, say: "I don't have that information."
 - Be friendly, medium-length, and professional.
+- Always include Live Site, Client Repo, and Server Repo when talking about projects.
+- Always return clickable links for contact information.
 
 DATA:
 ${knowledgeBase}
