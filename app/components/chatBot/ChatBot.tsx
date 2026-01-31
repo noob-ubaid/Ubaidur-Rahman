@@ -1,6 +1,7 @@
 "use client";
 
 import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport } from "ai";
 import { useRef, useEffect, useState } from "react";
 import { Send, Bot, User, Loader2, AlertCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -33,7 +34,7 @@ export default function Chat() {
     stop,
     setMessages,
   } = useChat({
-    api: "/api/chat",
+    transport: new DefaultChatTransport({ api: "/api/chat" }),
     onError: (err) => console.error("Chat error:", err),
     onFinish: () => inputRef.current?.focus(),
   });
