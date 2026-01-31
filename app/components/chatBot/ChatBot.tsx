@@ -24,7 +24,6 @@ export default function Chat() {
   const [input, setInput] = useState("");
   const [open, setOpen] = useState(false);
 
-
   const {
     messages,
     sendMessage,
@@ -89,7 +88,7 @@ export default function Chat() {
   const quickQuestions = [
     "How can I contact you?",
     "What skills do you have?",
-    "What projects have you worked on recently",
+    "What’s your latest project?",
     "What is your biggest project?",
   ];
 
@@ -235,6 +234,21 @@ export default function Chat() {
                       </div>
                     );
                   })}
+                 <div>
+                  <p className="font-medium text-text-color mb-2 mt-4 text-sm">Quick questions</p>
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {messages.length === 1 &&
+                      quickQuestions.map((question, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setInput(question)}
+                          className="text-left border border-gray-200 bg-white dark:bg-zinc-900 dark:border-zinc-800 px-3 py-2 rounded-lg text-xs hover:bg-gray-100 dark:hover:bg-zinc-800 transition shadow-sm"
+                        >
+                          {question}
+                        </button>
+                      ))}
+                  </div>
+                 </div>
 
                   {/* Loading */}
                   {isLoading && (
@@ -269,8 +283,7 @@ export default function Chat() {
                           <AlertCircle className="h-4 w-4 text-destructive mt-0.5" />
                           <div className="space-y-1">
                             <p className="text-sm text-destructive">
-                              {error.message ||
-                                "Something went wrong. Please try again."}
+                              {"Something went wrong. Please try again."}
                             </p>
                             <Button
                               onClick={() => regenerate()}
