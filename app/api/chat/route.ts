@@ -19,6 +19,7 @@ export async function POST(req: Request) {
       );
     }
 
+    // On Vercel: add GEMINI_API_KEY in Project → Settings → Environment Variables
     const apiKey =
       process.env.GEMINI_API_KEY ?? process.env.GOOGLE_GENERATIVE_AI_API_KEY;
 
@@ -26,10 +27,10 @@ export async function POST(req: Request) {
       return new Response(
         JSON.stringify({
           error:
-            "No Gemini API key configured. Set GEMINI_API_KEY or GOOGLE_GENERATIVE_AI_API_KEY.",
+            "No Gemini API key configured. Set GEMINI_API_KEY or GOOGLE_GENERATIVE_AI_API_KEY in Vercel Environment Variables.",
         }),
         {
-          status: 500,
+          status: 503,
           headers: { "Content-Type": "application/json" },
         },
       );

@@ -25,6 +25,26 @@ export default function Chat() {
   const [input, setInput] = useState("");
   const [open, setOpen] = useState(false);
 
+  // Use absolute URL in browser so the chat API works on Vercel (same-origin)
+  const chatApiUrl =
+    typeof window === "undefined"
+      ? "/api/chat"
+      : `${window.location.origin}/api/chat`;
+
+  // Surface API error body (e.g. "No Gemini API key configured") in the UI
+  const customFetch: typeof fetch = async (input, init) => {
+    const res = await fetch(input, init);
+    if (!res.ok && res.headers.get("content-type")?.includes("application/json")) {
+      try {
+        const data = (await res.json()) as { error?: string };
+        if (typeof data?.error === "string") throw new Error(data.error);
+      } catch (e) {
+        if (e instanceof Error) throw e;
+      }
+    }
+    return res;
+  };
+
   const {
     messages,
     sendMessage,
@@ -34,7 +54,7 @@ export default function Chat() {
     stop,
     setMessages,
   } = useChat({
-    transport: new DefaultChatTransport({ api: "/api/chat" }),
+    transport: new DefaultChatTransport({ api: chatApiUrl, fetch: customFetch }),
     onError: (err) => console.error("Chat error:", err),
     onFinish: () => inputRef.current?.focus(),
   });
@@ -285,10 +305,15 @@ export default function Chat() {
                     <div className="flex justify-center px-4">
                       <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-3 max-w-md">
                         <div className="flex items-start gap-2">
-                          <AlertCircle className="h-4 w-4 text-destructive mt-0.5" />
-                          <div className="space-y-1">
+                          <AlertCircle className="h-4 w-4 text-destructive mt-0.5 shrink-0" />
+                          <div className="space-y-1 min-w-0">
                             <p className="text-sm text-destructive">
-                              {"Something went wrong. Please try again."}
+                              {error.message ||
+                                "Something went wrong. Please try again."}
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                              If this is on Vercel, add GEMINI_API_KEY in
+                              Project → Settings → Environment Variables.
                             </p>
                             <Button
                               onClick={() => regenerate()}
